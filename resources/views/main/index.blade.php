@@ -1,50 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="rw-column rw-content">
-
         <div class="rw-row page-breadcrumb">
-            <a href="#">Home</a> &raquo; <span>хлебные крошки</span>
+            <a href="#">Главная</a> &raquo; <span>Статьи</span>
         </div>
         <div class="rw-row page-title">
-            <h1>название раздела</h1>
+            <h1>Статьи</h1>
         </div>
-
         <div class="rw-row">
-            @yield('content')
-
-            {!! $users->Text_Content !!}
             <div class="blog-list">
 
-                <!-- Entry -->
-                <div class="post clearfix">
-                    <div class="entry-photo"><img src="assets/placeholder/blog/780x430/2.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/780x430/2.jpg" alt="" /></div>
-                    <div class="entry-details">
-                        <div class="entry-date">
-                            <span class="date">23</span>
-                            <span class="month">August</span>
-                            <span class="year">2014</span>
+                @foreach ($posts as $post)
+                    <div class="post clearfix">
+                        <div class="entry-details">
+                            <div class="entry-date">
+                                <span class="date"> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d') }}</span>
+                                <span class="month"> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('F ') }}</span>
+                                <span class="year"> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('Y') }}</span>
+                            </div>
+                            <div class="entry-title">
+                                <h2>
+                                    <a href="/post/{{ $post->id }}"> {{ $post->name }}</a>
+                                </h2>
+                            </div>
+                            <div class="entry-content">
+                                {!! Illuminate\Support\Str::words($post->text,100)  !!}
+                            </div>
                         </div>
-                        <div class="entry-title"><h2><a href="#">Eminentiam destitutus firmare navigabile possessores hibernorum</a></h2></div>
-                        <div class="entry-content">
-                            Liber apparct legitima titulo massam. Mentis laedis soluni regalia atticas vincit accelerare suspicio inncem tantum septima ossibus. Deliciae superbam praecustodio gualitatibus glaebam eminentiam destitutus firmare navigabile possessores. Hibernorum liber apparct legitima titulo massam mentis laedis soluni regalia atticas vincit accelerare. Suspicio inncem tantum septima ossibus deliciae superbam praecustodio gualitatibus glaebam.							</div>
                     </div>
-                </div> <!-- .entry -->
+
+                @endforeach
+
                 <div class="clear"></div>
 
             </div> <!-- .blog-list -->
 
-            <div class="blog-pagination button-block center">
-                <a class="button small nobg primary" href="#">&larr; Prev</a>
-                <a class="button small nobg primary" href="#">...</a>
-                <span class="button small nobg primary current">4</span>
-                <a class="button small nobg primary" href="#">5</a>
-                <a class="button small nobg primary" href="#">6</a>
-                <a class="button small nobg primary" href="#">...</a>
-                <a class="button small nobg primary" href="#">192</a>
-                <a class="button small nobg primary" href="#">Next &rarr;</a>
-            </div>
+            <!-- пейджинация -->
+            {{ $posts->links('vendor.pagination.default') }}
 
 
         </div> <!-- .rw-row -->
@@ -61,10 +54,11 @@
             <!-- Widget -->
             <aside class="widget widget-search">
 
-                <div class="widget-title"><h3>Search</h3></div>
+                <div class="widget-title"><h3>Поиск</h3></div>
 
                 <form method="get" class="search-form" action="">
-                    <input type="text" class="search-field fullwidth" name="s" placeholder="Type keyword and press enter" value="">
+                    <input type="text" class="search-field fullwidth" name="s"
+                           placeholder="Type keyword and press enter" value="">
                 </form>
 
             </aside> <!-- .widget -->
@@ -73,80 +67,105 @@
             <!-- Widget -->
             <aside class="widget widget-posts">
 
-                <div class="widget-title"><h3>Most popular recipes</h3></div>
+                <div class="widget-title"><h3>Популярные материалы</h3></div>
                 <div class="widget-posts-list">
                     <!-- Entry -->
                     <div class="post">
                         <div class="entry-photo">
-                            <img src="assets/placeholder/food/50x50/4.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/4.jpg" alt="" />
+                            <img src="assets/placeholder/food/50x50/4.jpg"
+                                 tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/4.jpg"
+                                 alt=""/>
                         </div>
                         <div class="entry-title">
                             <a href="#">Consectetur adipisicing elit do eiusmod</a>
                         </div>
                         <div class="entry-controls minimal">
-                            <a href="#" class="control entry-to-favorites" title="Add to favorites"> <i class="fa fa-heart-o"></i> </a><span class="control-tip">127</span>
-                            <a href="#" class="control entry-like" title="I like this!"> <i class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">322</span>
-                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i> </a> <span class="control-tip">102</span>
+                            <a href="#" class="control entry-to-favorites" title="Add to favorites"> <i
+                                        class="fa fa-heart-o"></i> </a><span class="control-tip">127</span>
+                            <a href="#" class="control entry-like" title="I like this!"> <i
+                                        class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">322</span>
+                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i>
+                            </a> <span class="control-tip">102</span>
                         </div>
                     </div> <!-- .entry -->
 
                     <!-- Entry -->
                     <div class="post">
                         <div class="entry-photo">
-                            <img src="assets/placeholder/food/50x50/7.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/7.jpg" alt="" />
+                            <img src="assets/placeholder/food/50x50/7.jpg"
+                                 tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/7.jpg"
+                                 alt=""/>
                         </div>
                         <div class="entry-title">
                             <a href="#">Deliciae superbam praecustodio gualitatibus</a>
                         </div>
                         <div class="entry-controls minimal">
-                            <a href="#" class="control entry-to-favorites" title="Add to favorites"> <i class="fa fa-heart-o"></i> </a><span class="control-tip">169</span>
-                            <a href="#" class="control entry-like active" title="I like this!"> <i class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">452</span>
-                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i> </a> <span class="control-tip">87</span>
+                            <a href="#" class="control entry-to-favorites" title="Add to favorites"> <i
+                                        class="fa fa-heart-o"></i> </a><span class="control-tip">169</span>
+                            <a href="#" class="control entry-like active" title="I like this!"> <i
+                                        class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">452</span>
+                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i>
+                            </a> <span class="control-tip">87</span>
                         </div>
                     </div> <!-- .entry -->
 
                     <!-- Entry -->
                     <div class="post">
                         <div class="entry-photo">
-                            <img src="assets/placeholder/food/50x50/14.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/14.jpg" alt="" />
+                            <img src="assets/placeholder/food/50x50/14.jpg"
+                                 tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/14.jpg"
+                                 alt=""/>
                         </div>
                         <div class="entry-title">
                             <a href="#">Glaebam eminentiam destitutus firmare</a>
                         </div>
                         <div class="entry-controls minimal">
-                            <a href="#" class="control entry-to-favorites" title="Add to favorites"> <i class="fa fa-heart-o"></i> </a><span class="control-tip">127</span>
-                            <a href="#" class="control entry-like" title="I like this!"> <i class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">322</span>
-                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i> </a> <span class="control-tip">102</span>
+                            <a href="#" class="control entry-to-favorites" title="Add to favorites"> <i
+                                        class="fa fa-heart-o"></i> </a><span class="control-tip">127</span>
+                            <a href="#" class="control entry-like" title="I like this!"> <i
+                                        class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">322</span>
+                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i>
+                            </a> <span class="control-tip">102</span>
                         </div>
                     </div> <!-- .entry -->
 
                     <!-- Entry -->
                     <div class="post">
                         <div class="entry-photo">
-                            <img src="assets/placeholder/food/50x50/5.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/5.jpg" alt="" />
+                            <img src="assets/placeholder/food/50x50/5.jpg"
+                                 tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/5.jpg"
+                                 alt=""/>
                         </div>
                         <div class="entry-title">
                             <a href="#">Suspicio inncem tantum septima ossibus</a>
                         </div>
                         <div class="entry-controls minimal">
-                            <a href="#" class="control entry-to-favorites active" title="Add to favorites"> <i class="fa fa-heart-o"></i> </a><span class="control-tip">255</span>
-                            <a href="#" class="control entry-like" title="I like this!"> <i class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">471</span>
-                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i> </a> <span class="control-tip">120</span>
+                            <a href="#" class="control entry-to-favorites active" title="Add to favorites"> <i
+                                        class="fa fa-heart-o"></i> </a><span class="control-tip">255</span>
+                            <a href="#" class="control entry-like" title="I like this!"> <i
+                                        class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">471</span>
+                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i>
+                            </a> <span class="control-tip">120</span>
                         </div>
                     </div> <!-- .entry -->
 
                     <!-- Entry -->
                     <div class="post">
                         <div class="entry-photo">
-                            <img src="assets/placeholder/food/50x50/9.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/9.jpg" alt="" />
+                            <img src="assets/placeholder/food/50x50/9.jpg"
+                                 tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/food/50x50/9.jpg"
+                                 alt=""/>
                         </div>
                         <div class="entry-title">
                             <a href="#">Incididunt ut labore et dolore magna aliqua</a>
                         </div>
                         <div class="entry-controls minimal">
-                            <a href="#" class="control entry-to-favorites" title="Add to favorites"> <i class="fa fa-heart-o"></i> </a><span class="control-tip">127</span>
-                            <a href="#" class="control entry-like" title="I like this!"> <i class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">322</span>
-                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i> </a> <span class="control-tip">102</span>
+                            <a href="#" class="control entry-to-favorites" title="Add to favorites"> <i
+                                        class="fa fa-heart-o"></i> </a><span class="control-tip">127</span>
+                            <a href="#" class="control entry-like" title="I like this!"> <i
+                                        class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">322</span>
+                            <a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i>
+                            </a> <span class="control-tip">102</span>
                         </div>
                     </div> <!-- .entry -->
                 </div>
@@ -157,7 +176,7 @@
             <!-- Widget -->
             <aside class="widget widget-categories">
 
-                <div class="widget-title"><h3>Categories</h3></div>
+                <div class="widget-title"><h3>Категории</h3></div>
 
                 <ul>
                     <li><a href="#">Breakfast <span class="mark light-gray">157</span></a></li>
@@ -190,8 +209,12 @@
 
                 <ul>
                     <li>
-                        <img src="assets/placeholder/people/50x50/15.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/15.jpg" alt="" />
-                        <div class="author-name"><a href="#">Michelle Nelson</a> <span class="mark green" title="Pro member!">Pro</span></div>
+                        <img src="assets/placeholder/people/50x50/15.jpg"
+                             tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/15.jpg"
+                             alt=""/>
+                        <div class="author-name"><a href="#">Michelle Nelson</a> <span class="mark green"
+                                                                                       title="Pro member!">Pro</span>
+                        </div>
                         <div class="author-meta">
                             <span class="meta" title="421 total recipes submited"><i class="fa fa-newspaper-o"></i> 421</span>
                             <span class="meta" title="26252 reputation points"><i class="fa fa-bullseye"></i>26k</span>
@@ -199,8 +222,12 @@
                         </div>
                     </li>
                     <li>
-                        <img src="assets/placeholder/people/50x50/13.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/13.jpg" alt="" />
-                        <div class="author-name"><a href="#">Steven Martinez</a> <span class="mark orange" title="VIP member!">Vip</span></div>
+                        <img src="assets/placeholder/people/50x50/13.jpg"
+                             tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/13.jpg"
+                             alt=""/>
+                        <div class="author-name"><a href="#">Steven Martinez</a> <span class="mark orange"
+                                                                                       title="VIP member!">Vip</span>
+                        </div>
                         <div class="author-meta">
                             <span class="meta" title="399 total recipes submited"><i class="fa fa-newspaper-o"></i> 399</span>
                             <span class="meta" title="19722 reputation points"><i class="fa fa-bullseye"></i>19k</span>
@@ -208,7 +235,9 @@
                         </div>
                     </li>
                     <li>
-                        <img src="assets/placeholder/people/50x50/10.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/10.jpg" alt="" />
+                        <img src="assets/placeholder/people/50x50/10.jpg"
+                             tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/10.jpg"
+                             alt=""/>
                         <div class="author-name"><a href="#">Daniel Thompson</a></div>
                         <div class="author-meta">
                             <span class="meta" title="297 total recipes submited"><i class="fa fa-newspaper-o"></i> 297</span>
@@ -217,7 +246,9 @@
                         </div>
                     </li>
                     <li>
-                        <img src="assets/placeholder/people/50x50/20.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/20.jpg" alt="" />
+                        <img src="assets/placeholder/people/50x50/20.jpg"
+                             tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/20.jpg"
+                             alt=""/>
                         <div class="author-name"><a href="#">Sandra Williams</a></div>
                         <div class="author-meta">
                             <span class="meta" title="249 total recipes submited"><i class="fa fa-newspaper-o"></i> 249</span>
@@ -238,13 +269,16 @@
                 <!-- Accordion begin -->
                 <ul class="jquery_accordion" data-show-icon="false" data-active-index="2">
 
-                    <li><div> <i class="fa fa-bell"></i> Recent posts </div>
+                    <li>
+                        <div><i class="fa fa-bell"></i> Recent posts</div>
 
                         <div class="widget-posts-list">
                             <!-- Entry -->
                             <div class="post">
                                 <div class="entry-photo">
-                                    <img src="assets/placeholder/blog/50x50/4.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/4.jpg" alt="" />
+                                    <img src="assets/placeholder/blog/50x50/4.jpg"
+                                         tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/4.jpg"
+                                         alt=""/>
                                 </div>
                                 <div class="entry-title">
                                     <a href="#">Consectetur adipisicing elit do eiusmod</a>
@@ -255,7 +289,9 @@
                             <!-- Entry -->
                             <div class="post">
                                 <div class="entry-photo">
-                                    <img src="assets/placeholder/blog/50x50/5.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/5.jpg" alt="" />
+                                    <img src="assets/placeholder/blog/50x50/5.jpg"
+                                         tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/5.jpg"
+                                         alt=""/>
                                 </div>
                                 <div class="entry-title">
                                     <a href="#">Consectetur adipisicing elit do eiusmod</a>
@@ -266,7 +302,9 @@
                             <!-- Entry -->
                             <div class="post">
                                 <div class="entry-photo">
-                                    <img src="assets/placeholder/blog/50x50/6.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/6.jpg" alt="" />
+                                    <img src="assets/placeholder/blog/50x50/6.jpg"
+                                         tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/6.jpg"
+                                         alt=""/>
                                 </div>
                                 <div class="entry-title">
                                     <a href="#">Consectetur adipisicing elit do eiusmod</a>
@@ -277,13 +315,16 @@
 
                     </li>
 
-                    <li><div> <i class="fa fa-heart"></i> Popular posts </div>
+                    <li>
+                        <div><i class="fa fa-heart"></i> Popular posts</div>
 
                         <div class="widget-posts-list">
                             <!-- Entry -->
                             <div class="post">
                                 <div class="entry-photo">
-                                    <img src="assets/placeholder/blog/50x50/7.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/7.jpg" alt="" />
+                                    <img src="assets/placeholder/blog/50x50/7.jpg"
+                                         tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/7.jpg"
+                                         alt=""/>
                                 </div>
                                 <div class="entry-title">
                                     <a href="#">Consectetur adipisicing elit do eiusmod</a>
@@ -294,7 +335,9 @@
                             <!-- Entry -->
                             <div class="post">
                                 <div class="entry-photo">
-                                    <img src="assets/placeholder/blog/50x50/8.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/8.jpg" alt="" />
+                                    <img src="assets/placeholder/blog/50x50/8.jpg"
+                                         tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/8.jpg"
+                                         alt=""/>
                                 </div>
                                 <div class="entry-title">
                                     <a href="#">Consectetur adipisicing elit do eiusmod</a>
@@ -305,7 +348,9 @@
                             <!-- Entry -->
                             <div class="post">
                                 <div class="entry-photo">
-                                    <img src="assets/placeholder/blog/50x50/1.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/1.jpg" alt="" />
+                                    <img src="assets/placeholder/blog/50x50/1.jpg"
+                                         tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/blog/50x50/1.jpg"
+                                         alt=""/>
                                 </div>
                                 <div class="entry-title">
                                     <a href="#">Consectetur adipisicing elit do eiusmod</a>
@@ -316,11 +361,14 @@
 
                     </li>
 
-                    <li><div> <i class="fa fa-comment"></i> Latest comments </div>
+                    <li>
+                        <div><i class="fa fa-comment"></i> Latest comments</div>
                         <div class="widget-comments-list">
                             <div class="comment">
                                 <div class="entry-photo">
-                                    <img src="assets/placeholder/people/50x50/2.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/2.jpg" alt="" />
+                                    <img src="assets/placeholder/people/50x50/2.jpg"
+                                         tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/2.jpg"
+                                         alt=""/>
                                 </div>
                                 <div>
                                     <a href="#">Michelle Nelson</a><br>
@@ -330,7 +378,9 @@
 
                             <div class="comment">
                                 <div class="entry-photo">
-                                    <img src="assets/placeholder/people/50x50/5.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/5.jpg" alt="" />
+                                    <img src="assets/placeholder/people/50x50/5.jpg"
+                                         tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/5.jpg"
+                                         alt=""/>
                                 </div>
                                 <div>
                                     <a href="#">Steven King</a><br>
@@ -340,7 +390,9 @@
 
                             <div class="comment">
                                 <div class="entry-photo">
-                                    <img src="assets/placeholder/people/50x50/8.jpg" tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/8.jpg" alt="" />
+                                    <img src="assets/placeholder/people/50x50/8.jpg"
+                                         tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/8.jpg"
+                                         alt=""/>
                                 </div>
                                 <div>
                                     <a href="#">Richard Thomas</a><br>

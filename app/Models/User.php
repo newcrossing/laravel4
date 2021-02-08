@@ -45,7 +45,7 @@ class User extends Authenticatable
      * Связь с таблицей посты
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function post()
+    public function posts()
     {
         return $this->hasMany(Post::class);
     }

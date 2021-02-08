@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +14,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [UserController::class, 'index']);
-Route::get('/doc', [docController::class, 'index']);
+Route::get('/', [PostController::class, 'index']);
+Route::get('/post/', [PostController::class, 'list']);
+Route::get('/post/{id}', [PostController::class, 'single']);
 
 
 

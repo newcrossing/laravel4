@@ -16,19 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-     //    \App\Models\User::factory(10)->create();
-     //  \App\Models\Post::factory(10)->create();
 
-       // $users = User::factory()->count(3)->make();
-
-       // factory(App\Models\User::class)->create();
-
-      //  User::factory()->create();
-       // Post::factory()->count(10)->create();
-
+        // создаю фабрику для пользователей   - постов
         $user = User::factory()
-            ->count(5)
-            ->has(Post::factory()->count(3000))
+            ->count(1)
+            ->has(Post::factory()->count(20))
             ->create();
     }
 }

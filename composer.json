@@ -13,9 +13,8 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5",
-        "barryvdh/laravel-ide-helper": "",
-        "": ""
+        "laravel/tinker": "^2.5"
+
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -48,7 +47,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
+    "prefer-stable": true,3,
+
+
+
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
