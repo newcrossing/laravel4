@@ -29,13 +29,13 @@ class PostController extends Controller {
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('main.index', ['posts' => $posts]);
+        return view('site.main.index', ['posts' => $posts]);
     }
 
     public function single(Request $request, $id) {
 
         $posts = Post::findOrFail($id);
-        return view('post.single', ['post' => $posts]);
+        return view('site.post.single', ['post' => $posts]);
 
     }
 }

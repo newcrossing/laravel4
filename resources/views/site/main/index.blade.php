@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('site.layouts.app')
 
 @section('content')
+    {{ config('app.timezone') }}
+    {{ config('admin.navbarBgColor') }}
     <div class="rw-column rw-content">
         <div class="rw-row page-breadcrumb">
             <a href="#">Главная</a> &raquo; <span>Статьи</span>

@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>titile</title>
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/assets/fonts/awards/awards.css"/>
-    <link rel="stylesheet" href="/assets/css/styles.css"/>
+
+    <link rel="stylesheet" href="{{ asset('/assets/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/assets/fonts/awards/awards.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/assets/css/styles.css') }}"/>
+
 </head>
 <body>
 <section id="rw-layout" class="rw-layout">
@@ -29,8 +31,8 @@
                     </div>
                     <nav id="the-main-menu" class="main-menu-nav menu-inline" data-breakpoint="1160">
                         <ul class="menu horizontal">
-                            <li><a href="/" >Главная</a></li>
-                            <li><a href="/post" >Статьи</a></li>
+                            <li><a href="/">Главная</a></li>
+                            <li><a href="/post">Статьи</a></li>
 
                             <li>
                                 <a href="blog.php.htm" tppabs="http://smartik.ws/demo/themeforest/html/gustos/blog.php">Блог</a>
@@ -159,7 +161,8 @@
                                                          class="avatar" alt=""/>
                                                     <div class="username"><a href="#">Jeff Mitchell</a> on <a href="#">Chicken
                                                             Salad with...</a></div>
-                                                    <div class="message">"Elit, sed do eiusmod tempor incididunt..."</div>
+                                                    <div class="message">"Elit, sed do eiusmod tempor incididunt..."
+                                                    </div>
                                                     <div class="date">28 jan 2014</div>
                                                     <i class="fa fa-comment-o type"></i>
                                                 </div>
@@ -169,7 +172,8 @@
                                                     <img src="assets/placeholder/people/50x50/4.jpg"
                                                          tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/4.jpg"
                                                          class="avatar" alt=""/>
-                                                    <div class="username"><a href="#">Michelle Nelson</a> followed you</div>
+                                                    <div class="username"><a href="#">Michelle Nelson</a> followed you
+                                                    </div>
                                                     <div class="date">28 jan 2014</div>
                                                     <i class="fa fa-check-square-o type"></i>
                                                 </div>
@@ -179,7 +183,8 @@
                                                     <img src="assets/placeholder/people/50x50/5.jpg"
                                                          tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/5.jpg"
                                                          class="avatar" alt=""/>
-                                                    <div class="username"><a href="#">Steven Martinez</a> liked <a href="#">Spicy
+                                                    <div class="username"><a href="#">Steven Martinez</a> liked <a
+                                                                href="#">Spicy
                                                             Rapid Roast Chicken</a></div>
                                                     <div class="date">28 jan 2014</div>
                                                     <i class="fa fa-thumbs-o-up type"></i>
@@ -190,7 +195,8 @@
                                                     <img src="assets/placeholder/people/50x50/8.jpg"
                                                          tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/8.jpg"
                                                          class="avatar" alt=""/>
-                                                    <div class="username"><a href="#">Daniel Thompson</a> added to favorites
+                                                    <div class="username"><a href="#">Daniel Thompson</a> added to
+                                                        favorites
                                                         <a href="#">Creamy Shrimp and Broccoli Fettuccine</a></div>
                                                     <div class="date">28 jan 2014</div>
                                                     <i class="fa fa-heart-o type"></i>
@@ -233,7 +239,8 @@
                                                              tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/22.jpg"
                                                              class="avatar" alt=""/>
                                                         <div class="username">Steven Martinez</div>
-                                                        <div class="message">"Hello, I need help regarding your recipe..."
+                                                        <div class="message">"Hello, I need help regarding your
+                                                            recipe..."
                                                         </div>
                                                         <div class="date">5 minutes ago</div>
                                                         <i class="fa fa-envelope-o type"></i>
@@ -275,7 +282,8 @@
                                                              tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/people/50x50/11.jpg"
                                                              class="avatar" alt=""/>
                                                         <div class="username">Daniel Thompson</div>
-                                                        <div class="message">"Quis nostrud exercitation ullamco..."</div>
+                                                        <div class="message">"Quis nostrud exercitation ullamco..."
+                                                        </div>
                                                         <div class="date">28 jan 2014</div>
                                                         <i class="fa fa-envelope-o type"></i>
                                                     </div>
@@ -440,13 +448,14 @@
 
 <!-- Javascript -->
 <!-- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
-<script src="/assets/js/library/jquery-2.1.1.min.js"></script>
-<script src="/assets/js/min/smk-menu.min.js"></script>
-<script src="/assets/js/rw-sidebar.js"></script>
-<script src="/assets/js/min/jquery.qtip.min.js"></script>
-<script src="/assets/js/min/smk-accordion.min.js"></script>
-<script src="/assets/js/min/smk-visual-select.min.js"></script>
-<script src="/assets/js/min/owl.carousel.min.js"></script>
-<script src="/assets/js/scripts.js"></script>
+<script src="{{ asset('/assets/js/library/jquery-2.1.1.min.js') }}"></script>
+<script src="{{ asset('/assets/js/min/smk-menu.min.js') }}"></script>
+<script src="{{ asset('/assets/js/rw-sidebar.js') }}"></script>
+<script src="{{ asset('/assets/js/rw-sidebar.js') }}"></script>
+<script src="{{ asset('/assets/js/min/jquery.qtip.min.js') }}"></script>
+<script src="{{ asset('/assets/js/min/smk-accordion.min.js') }}"></script>
+<script src="{{ asset('/assets/js/min/smk-visual-select.min.js') }}"></script>
+<script src="{{ asset('/assets/js/min/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('/assets/js/scripts.js') }}"></script>
 </body>
 </html>
