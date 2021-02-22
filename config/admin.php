@@ -4,9 +4,9 @@ return [
 
 
     'mainLayoutType' => 'vertical-menu',
-    'theme' => 'light',
+    'theme' => 'dark',
     'isContentSidebar' => false,
-    'pageHeader' => false,
+    'pageHeader' => true,
     'bodyCustomClass' => '',
     'navbarBgColor' => 'bg-white',
     'navbarType' => 'fixed',

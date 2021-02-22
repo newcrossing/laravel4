@@ -24,6 +24,7 @@ Route::get('/post/{id}', [PostController::class, 'single']);
 // Authentication  Route
 
 Route::get('/admin',[AdminController::class, 'loginPage']);
+Route::get('/admin/index',[AdminController::class, 'index']);
 
 
 
