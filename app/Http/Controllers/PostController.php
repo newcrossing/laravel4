@@ -13,8 +13,7 @@ class PostController extends Controller
         $posts = DB::table('posts')
                 ->where('published', 1)
                 ->orderBy('created_at', 'desc')
-                ->limit(5)
-                ->get();
+                ->paginate(10);
 
         return view('site.main.index', ['posts' => $posts]);
     }
