@@ -35,7 +35,7 @@
 		</div> <!-- .rw-row -->
 
 
-		@if (count($post->tags) > 0)
+		@if (($post->tags->count()) )
 			<div class="rw-row light border-tb">
 				<div class="recipe-tags">
 					<span class="tags-title">Теги:</span>
