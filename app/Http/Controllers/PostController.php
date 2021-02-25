@@ -16,7 +16,7 @@ class PostController extends Controller
                 ->limit(5)
                 ->get();
 
-        return view('main.index', ['posts' => $posts]);
+        return view('site.main.index', ['posts' => $posts]);
     }
 
     /**
