@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EduController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('/post/', [PostController::class, 'list']);
+Route::get('/sort/', [EduController::class, 'sort']);
 Route::get('/post/{id}', [PostController::class, 'single']);
 
 

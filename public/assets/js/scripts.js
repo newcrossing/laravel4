@@ -14,6 +14,8 @@
 
 $(document).ready(function(){
 
+
+
 	/* Rw Sidebar
 	------------------------------------------------*/
 	$('.rw-sidebar').rw_Sidebar();
