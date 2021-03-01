@@ -28,10 +28,5 @@ class EduController extends Controller
         return view('site.main.index', ['posts' => $posts]);
     }
 
-    public function single(Request $request, $id)
-    {
-        $posts = Post::findOrFail($id);
 
-        return view('site.post.single', ['post' => $posts]);
-    }
 }
