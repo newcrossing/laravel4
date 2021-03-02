@@ -261,7 +261,8 @@
 
 						<p class="form-submit clearfix">
 							<input name="submit" class="button primary" type="submit" value="Post Comment"/>
-							<span class="comment-form-question"><i class="fa fa-question-circle fa-2x"></i></span>
+							<span class="comment-form-question"><i class="fa fa-question-circle fa-2x"></i>
+							</span>
 						<div class="form-allowed-tags" style="display: none;">
                             <span class="ftg-title" style="display: none">You may use these <abbr
 										title="HyperText Markup Language">HTML</abbr> tags and attributes:</span>
@@ -280,6 +281,8 @@
 							<code>&lt;strong&gt;</code><br/>
 						</div>
 						</p>
+
+
 
 					</form>
 				</div>
