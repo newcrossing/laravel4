@@ -34,7 +34,7 @@
 
 		</div> <!-- .rw-row -->
 
-		{{dd($post->tags()->count())}}
+
 		@if (($post->tags()->count()) )
 			<div class="rw-row light border-tb">
 				<div class="recipe-tags">
