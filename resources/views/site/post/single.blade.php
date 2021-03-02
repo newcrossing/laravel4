@@ -34,13 +34,12 @@
 
 		</div> <!-- .rw-row -->
 
-
-		@if (($post->tags->count()) )
+		{{dd($post->tags()->count())}}
+		@if (($post->tags()->count()) )
 			<div class="rw-row light border-tb">
 				<div class="recipe-tags">
 					<span class="tags-title">Теги:</span>
 					@foreach ($post->tags as $tag)
-
 						<span class="tag"><a href="/tag/{{ $tag->id }}"> {{ $tag->name }}</a></span>
 					@endforeach
 				</div>
