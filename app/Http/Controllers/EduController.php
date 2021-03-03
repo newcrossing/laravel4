@@ -10,22 +10,19 @@ class EduController extends Controller
 {
     public function sort()
     {
-
         return view('site.edu.sort');
     }
 
     /**
-     * Jn
+     *
+     *
+     * @param $id
+     *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function list()
+    public function task($id)
     {
-        $posts = DB::table('posts')
-                ->where('published', 1)
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
-
-        return view('site.main.index', ['posts' => $posts]);
+        return view('site.edu.task', ['id' => $id]);
     }
 
 

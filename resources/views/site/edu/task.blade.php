@@ -13,117 +13,6 @@
 </head>
 <body>
 
-<style type="text/css">
-    div.square22 {
-        width: 100px;
-        height: 100px;
-
-        border: #c80d15 solid 5px;
-        float: left;
-        margin: 5px;
-        cursor: pointer;
-    }
-
-    div.blue {
-        background: blue;
-    }
-
-    div.red {
-        background: red;
-    }
-
-    div.green {
-        background: green;
-    }
-
-    div.yellow {
-        background: yellow;
-    }
-
-
-    .cards-list {
-        z-index: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-
-    .card {
-        margin: 15px auto;
-        width: 150px;
-        height: 150px;
-        border-radius: 40px;
-        box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
-        cursor: pointer;
-        transition: 0.4s;
-    }
-
-    .card .card_image {
-        width: inherit;
-        height: inherit;
-        border-radius: 40px;
-    }
-
-    .card .card_image img {
-        width: inherit;
-        height: inherit;
-        border-radius: 40px;
-        object-fit: cover;
-    }
-
-    .card .card_title {
-        text-align: center;
-        border-radius: 0px 0px 40px 40px;
-        font-family: sans-serif;
-        font-weight: bold;
-        font-size: 30px;
-        margin-top: -80px;
-        height: 40px;
-    }
-
-    .card:hover {
-        transform: scale(0.9, 0.9);
-        box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
-        -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
-    }
-
-    .title-white {
-        color: white;
-    }
-
-    .title-black {
-        color: black;
-    }
-
-    @media all and (max-width: 500px) {
-        .card-list {
-            /* On small screens, we are no longer using row direction but column */
-            flex-direction: column;
-        }
-    }
-
-
-    /*
-	.card {
-	  margin: 30px auto;
-	  width: 300px;
-	  height: 300px;
-	  border-radius: 40px;
-	  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
-	  background-size: cover;
-	  background-repeat: no-repeat;
-	  background-position: center;
-	  background-repeat: no-repeat;
-	box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
-	  transition: 0.4s;
-	}
-	*/
-
-
-</style>
-
-
 <section id="rw-layout" class="rw-layout">
 
 	<!--
@@ -136,11 +25,6 @@
 			<div class="grid-container">
 
 				<div class="grid desk-8 mob-6 alpha clearfix">
-					<div class="logo-holder">
-						<img src="assets/placeholder/logo.png"
-							 tppabs="http://smartik.ws/demo/themeforest/html/gustos/assets/placeholder/logo.png"
-							 class="logo" alt=""/>
-					</div>
 					<nav id="the-main-menu" class="main-menu-nav menu-inline" data-breakpoint="1160">
 						<ul class="menu horizontal">
 							<li><a href="/edu/sort">Сортировка</a></li>
@@ -161,50 +45,8 @@
 	<div class="rw-section rw-container ">
 		<div class="rw-inner clearfix ">
 
-
 			<!-- Main content -->
-
-
-			<div class="cards-list">
-
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-
-			</div>
-
+			<img src="/images/edu/edu{{$id}}.jpg" >
 
 		</div> <!-- .rw-inner -->
 	</div> <!-- .rw-container -->

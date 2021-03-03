@@ -25,5 +25,13 @@ class DatabaseSeeder extends Seeder
 
         // Фабрика для тегов
         Tag::factory()->count(10)->create();
+
+        $tag = new Tag(['name' => 'Foo bar.']);
+
+        //Find the video to insert into a tag
+        $video = Video::find(1);
+
+        //In the tag relationship, save a new video
+        $tag->videos()->save($video);
     }
 }

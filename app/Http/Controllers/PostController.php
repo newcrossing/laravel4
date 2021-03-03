@@ -32,7 +32,7 @@ class PostController extends Controller
         return view('site.main.index', ['posts' => $posts]);
     }
 
-    public function single(Request $request, $id)
+    public function single($id)
     {
         $posts = Post::findOrFail($id);
 

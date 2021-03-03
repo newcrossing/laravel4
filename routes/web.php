@@ -18,15 +18,12 @@ use App\Http\Controllers\EduController;
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('/post/', [PostController::class, 'list']);
-Route::get('/edu/sort/', [EduController::class, 'sort']);
 Route::get('/post/{id}', [PostController::class, 'single']);
 
-Route::get(
-        '/test',
-        function () {
-            // Only authenticated users may access this route...
-        }
-)->middleware('auth:admin');
+Route::get('/edu/sort/', [EduController::class, 'sort']);
+Route::get('/edu/task/{id}', [EduController::class, 'task']);
+
+Route::get('/test',     function () {       })->middleware('auth:admin');
 
 // Authentication  Route
 

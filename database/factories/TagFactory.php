@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Factory as Faker;
@@ -23,10 +24,13 @@ class TagFactory extends Factory
      */
     public function definition()
     {
-        $faker = Faker::create('ru_RU');
-        return [
-            'name' =>  $faker->text(10),
-            'hits' => $faker->numberBetween(1,50)
-        ];
+//        $faker = Faker::create('ru_RU');
+//        return [
+//            'name' =>  $faker->text(10),
+//            'hits' => $faker->numberBetween(1,50)
+//        ];
+
+
+
     }
 }
