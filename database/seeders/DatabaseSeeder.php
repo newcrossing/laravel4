@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
@@ -16,11 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         // создаю фабрику для пользователей   - постов
-        $user = User::factory()
-            ->count(1)
-            ->has(Post::factory()->count(20))
-            ->create();
+        User::factory()
+                ->count(1)
+                ->has(Post::factory()->count(20))
+                ->create();
+
+        // Фабрика для тегов
+        Tag::factory()->count(10)->create();
     }
 }

@@ -15,14 +15,24 @@
 				<div class="entry post">
 
 					<div class="entry-details">
-						<div class="entry-date">
-							<span class="date"> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d') }}</span>
-							<span class="month"> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('F ') }}</span>
-							<span class="year"> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('Y') }}</span>
-						</div>
-						<div class="entry-content">
-							{{ $post->text }}
+						<i class="the-icon fa fa-user"></i>
+						<span class="">
+							<a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
+						</span>
 
+
+						<i class="the-icon fa fa-calendar"></i>
+						<span class="date">
+							{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d') }}
+							{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('F ') }}
+							{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('Y') }}
+						</span>
+						<br>
+						<br>
+
+
+						<div class="">
+							{{ $post->text }}
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -46,192 +56,193 @@
 			</div> <!-- .rw-row -->
 		@endif
 
+		@if(2>5)
+			<div class="rw-row light-gray border-tb">
 
+				<h2>Comments - 7:</h2>
+				<ul class="post-comments">
 
-		<div class="rw-row light-gray border-tb">
-
-			<h2>Comments - 7:</h2>
-			<ul class="post-comments">
-
-				<!-- Comments level 0 -->
-				<li class="comment">
-					<div class="comment-avatar">
-						<img src="/assets/placeholder/5.jpg"
-							 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/5.jpg"
-							 class="avatar" alt=""/>
-					</div>
-					<div class="content">
-						<div class="comment-header">
-							<a href="#">Steven Hall</a><span class="comment-time">28 January 2013</span>
-							<div class="comment-vote">
-								<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
-								<div class="counter">309</div>
-								<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
-							</div>
+					<!-- Comments level 0 -->
+					<li class="comment">
+						<div class="comment-avatar">
+							<img src="/assets/placeholder/5.jpg"
+								 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/5.jpg"
+								 class="avatar" alt=""/>
 						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore a ut magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do est
-							tempor.</p>
-					</div>
-
-					<!-- Comments level 1 -->
-					<ul>
-						<li class="comment">
-							<div class="comment-avatar">
-								<img src="/assets/placeholder/6.jpg"
-									 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/6.jpg"
-									 class="avatar" alt=""/>
-							</div>
-							<div class="content">
-								<div class="comment-header">
-									<a href="#">Donna Martin</a><span class="comment-time">28 January 2013</span>
-									<div class="comment-vote">
-										<div class="control upvote active"><i class="fa fa-chevron-up"></i></div>
-										<div class="counter">117</div>
-										<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
-									</div>
+						<div class="content">
+							<div class="comment-header">
+								<a href="#">Steven Hall</a><span class="comment-time">28 January 2013</span>
+								<div class="comment-vote">
+									<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
+									<div class="counter">309</div>
+									<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore a ut magna aliqua.</p>
 							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore a ut magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do est
+								tempor.</p>
+						</div>
 
-							<!-- Comments level 2 -->
-							<ul>
-								<li class="comment">
-									<div class="comment-avatar">
-										<img src="/assets/placeholder/13.jpg"
-											 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/13.jpg"
-											 class="avatar" alt=""/>
-									</div>
-									<div class="content">
-										<div class="comment-header">
-											<a href="#">Kenneth Clark</a><span
-													class="comment-time">28 January 2013</span>
-											<div class="comment-vote">
-												<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
-												<div class="counter negative">-214</div>
-												<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
-											</div>
+						<!-- Comments level 1 -->
+						<ul>
+							<li class="comment">
+								<div class="comment-avatar">
+									<img src="/assets/placeholder/6.jpg"
+										 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/6.jpg"
+										 class="avatar" alt=""/>
+								</div>
+								<div class="content">
+									<div class="comment-header">
+										<a href="#">Donna Martin</a><span class="comment-time">28 January 2013</span>
+										<div class="comment-vote">
+											<div class="control upvote active"><i class="fa fa-chevron-up"></i></div>
+											<div class="counter">117</div>
+											<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
 										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore a ut magna aliqua. Ut enim ad minim
-											veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do est
-											tempor.</p>
 									</div>
-								</li><!-- comment end -->
-							</ul>
-							<!-- Comments level 2 end -->
-
-						</li><!-- comment end -->
-					</ul>
-					<!-- Comments level 1 end -->
-
-					<a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
-
-				</li><!-- comment end -->
-
-				<li class="comment">
-					<div class="comment-avatar">
-						<img src="/assets/placeholder/18.jpg"
-							 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/18.jpg"
-							 class="avatar" alt=""/>
-					</div>
-					<div class="content">
-						<div class="comment-header">
-							<a href="#">Mark Wilson</a><span class="comment-time">28 January 2013</span>
-							<div class="comment-vote">
-								<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
-								<div class="counter">158</div>
-								<div class="control downvote active"><i class="fa fa-chevron-down"></i></div>
-							</div>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore a ut magna aliqua tempor.</p>
-					</div>
-
-					<ul>
-						<li class="comment">
-							<div class="comment-avatar">
-								<img src="/assets/placeholder/21.jpg"
-									 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/21.jpg"
-									 class="avatar" alt=""/>
-							</div>
-							<div class="content">
-								<div class="comment-header">
-									<a href="#">Ruth Lopez</a><span class="comment-time">28 January 2013</span>
-									<div class="comment-vote">
-										<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
-										<div class="counter">182</div>
-										<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
-									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore a ut magna aliqua.</p>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore a ut magna aliqua tempor.</p>
-							</div>
-						</li><!-- comment end -->
-					</ul>
 
-					<a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+								<!-- Comments level 2 -->
+								<ul>
+									<li class="comment">
+										<div class="comment-avatar">
+											<img src="/assets/placeholder/13.jpg"
+												 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/13.jpg"
+												 class="avatar" alt=""/>
+										</div>
+										<div class="content">
+											<div class="comment-header">
+												<a href="#">Kenneth Clark</a><span
+														class="comment-time">28 January 2013</span>
+												<div class="comment-vote">
+													<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
+													<div class="counter negative">-214</div>
+													<div class="control downvote"><i class="fa fa-chevron-down"></i>
+													</div>
+												</div>
+											</div>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+												tempor incididunt ut labore et dolore a ut magna aliqua. Ut enim ad
+												minim
+												veniam,
+												quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do est
+												tempor.</p>
+										</div>
+									</li><!-- comment end -->
+								</ul>
+								<!-- Comments level 2 end -->
 
-				</li><!-- comment end -->
+							</li><!-- comment end -->
+						</ul>
+						<!-- Comments level 1 end -->
 
-				<li class="comment">
-					<div class="comment-avatar">
-						<img src="/assets/placeholder/6.jpg"
-							 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/6.jpg"
-							 class="avatar" alt=""/>
-					</div>
-					<div class="content">
-						<div class="comment-header">
-							<a href="#">Susan Hill</a><span class="comment-time">28 January 2013</span>
-							<div class="comment-vote">
-								<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
-								<div class="counter">442</div>
-								<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
-							</div>
+						<a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+
+					</li><!-- comment end -->
+
+					<li class="comment">
+						<div class="comment-avatar">
+							<img src="/assets/placeholder/18.jpg"
+								 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/18.jpg"
+								 class="avatar" alt=""/>
 						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore a ut magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do est
-							tempor.</p>
-					</div>
-
-					<a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
-
-				</li><!-- comment end -->
-
-				<li class="comment">
-					<div class="comment-avatar">
-						<img src="/assets/placeholder/15.jpg"
-							 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/15.jpg"
-							 class="avatar" alt=""/>
-					</div>
-					<div class="content">
-						<div class="comment-header">
-							<a href="#">David Walker</a><span class="comment-time">28 January 2013</span>
-							<div class="comment-vote">
-								<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
-								<div class="counter negative">-52</div>
-								<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
+						<div class="content">
+							<div class="comment-header">
+								<a href="#">Mark Wilson</a><span class="comment-time">28 January 2013</span>
+								<div class="comment-vote">
+									<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
+									<div class="counter">158</div>
+									<div class="control downvote active"><i class="fa fa-chevron-down"></i></div>
+								</div>
 							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore a ut magna aliqua tempor.</p>
 						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore a ut magna aliqua tempor.</p>
-					</div>
 
-					<a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+						<ul>
+							<li class="comment">
+								<div class="comment-avatar">
+									<img src="/assets/placeholder/21.jpg"
+										 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/21.jpg"
+										 class="avatar" alt=""/>
+								</div>
+								<div class="content">
+									<div class="comment-header">
+										<a href="#">Ruth Lopez</a><span class="comment-time">28 January 2013</span>
+										<div class="comment-vote">
+											<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
+											<div class="counter">182</div>
+											<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
+										</div>
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore a ut magna aliqua tempor.</p>
+								</div>
+							</li><!-- comment end -->
+						</ul>
 
-				</li><!-- comment end -->
+						<a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
 
-			</ul>
+					</li><!-- comment end -->
 
-		</div> <!-- .rw-row -->
+					<li class="comment">
+						<div class="comment-avatar">
+							<img src="/assets/placeholder/6.jpg"
+								 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/6.jpg"
+								 class="avatar" alt=""/>
+						</div>
+						<div class="content">
+							<div class="comment-header">
+								<a href="#">Susan Hill</a><span class="comment-time">28 January 2013</span>
+								<div class="comment-vote">
+									<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
+									<div class="counter">442</div>
+									<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
+								</div>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore a ut magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do est
+								tempor.</p>
+						</div>
 
+						<a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+
+					</li><!-- comment end -->
+
+					<li class="comment">
+						<div class="comment-avatar">
+							<img src="/assets/placeholder/15.jpg"
+								 tppabs="http://smartik.ws/demo/themeforest/html/gustos//assets/placeholder/15.jpg"
+								 class="avatar" alt=""/>
+						</div>
+						<div class="content">
+							<div class="comment-header">
+								<a href="#">David Walker</a><span class="comment-time">28 January 2013</span>
+								<div class="comment-vote">
+									<div class="control upvote"><i class="fa fa-chevron-up"></i></div>
+									<div class="counter negative">-52</div>
+									<div class="control downvote"><i class="fa fa-chevron-down"></i></div>
+								</div>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore a ut magna aliqua tempor.</p>
+						</div>
+
+						<a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
+
+					</li><!-- comment end -->
+
+				</ul>
+
+			</div> <!-- .rw-row -->
+		@endif
 		<div class="rw-row">
 
 			<!-- <h2>Leave a Reply</h2> -->
@@ -281,9 +292,6 @@
 							<code>&lt;strong&gt;</code><br/>
 						</div>
 						</p>
-
-
-
 					</form>
 				</div>
 			</div><!-- #respond -->
