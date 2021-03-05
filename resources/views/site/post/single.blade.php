@@ -3,23 +3,27 @@
 @section('content')
 	<div class="rw-column rw-content">
 		<div class="rw-row page-breadcrumb">
-			<a href="#">Home</a> &raquo; <span>хлебные крошки</span>
+			@isset($breadcrumbs)
+				@foreach ($breadcrumbs as $breadcrumb)
+					@if(isset($breadcrumb['link']))
+						<a href="{{asset($breadcrumb['link'])}}">{{$breadcrumb['name']}}</a>&raquo;
+					@else
+						{{$breadcrumb['name']}}
+					@endif
+				@endforeach
+			@endisset
 		</div>
 		<div class="rw-row page-title">
 			<h1> {{ $post->name }}</h1>
 		</div>
 		<div class="rw-row">
-
-
 			<div class="blog-single clearfix">
 				<div class="entry post">
-
 					<div class="entry-details">
 						<i class="the-icon fa fa-user"></i>
 						<span class="">
 							<a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
 						</span>
-
 
 						<i class="the-icon fa fa-calendar"></i>
 						<span class="date">

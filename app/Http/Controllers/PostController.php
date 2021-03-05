@@ -34,8 +34,14 @@ class PostController extends Controller
 
     public function single($id)
     {
-        $posts = Post::findOrFail($id);
+        $post = Post::findOrFail($id);
 
-        return view('site.post.single', ['post' => $posts]);
+        $breadcrumbs = [
+                ['link' => "/", 'name' => "Главная"],
+                ['link' => "/post", 'name' => " Статьи"],
+                ['name' => $post->name],
+        ];
+
+        return view('site.post.single', ['post' => $post, 'breadcrumbs' => $breadcrumbs]);
     }
 }
