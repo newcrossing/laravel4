@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('name')->comment('Название статьи');
             $table->longText('text');
             $table->string('tags')->nullable();
-            $table->integer('published')->default('1')->nullable();
+            $table->integer('active')->default('1')->nullable();
             $table->integer('hits')->default('0')->nullable();
             $table->enum('notify', ['0', '1', '2']); // уведомление. 0 - не требуется . 1 - требуется . 2 - уведомлено
             $table->integer('in_main')->default('0')->nullable();; // на главную страницу

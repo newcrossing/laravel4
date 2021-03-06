@@ -420,8 +420,8 @@
 							<a href="#">Incididunt ut labore et dolore magna aliqua</a>
 						</div>
 						<div class="entry-controls minimal">
-							<a href="#" class="control entry-to-favorites" title="Add to favorites"> <i
-										class="fa fa-heart-o"></i> </a><span class="control-tip">127</span>
+							<a href="#" class="control entry-to-favorites" title="Add to favorites">
+								<i class="fa fa-heart-o"></i> </a><span class="control-tip">127</span>
 							<a href="#" class="control entry-like" title="I like this!"> <i
 										class="fa fa-thumbs-o-up"></i> </a> <span class="control-tip">322</span>
 							<a href="#" class="control entry-comments" title="Comments"> <i class="fa fa-comments"></i>
@@ -433,36 +433,25 @@
 			</aside> <!-- .widget -->
 			<!-- / Widget -->
 
+
+		@if ($tags->count())
 			<!-- Widget -->
-			<aside class="widget widget-categories">
+				<aside class="widget widget-categories">
+					<div class="widget-title"><h3>Теги</h3></div>
+					<ul>
+						@foreach ($tags as $tag)
+							<li><a href="/tag/{{ $tag->id }}">{{ $tag->name }}
+									<span class="mark light-gray">{{ $tag->hits }}</span>
+								</a></li>
+						@endforeach
+					</ul>
+				</aside> <!-- .widget -->
+				<!-- / Widget -->
+		@endif
 
-				<div class="widget-title"><h3>Категории</h3></div>
 
-				<ul>
-					<li><a href="#">Breakfast <span class="mark light-gray">157</span></a></li>
-					<li><a href="#">Lunch <span class="mark light-gray">24</span></a></li>
-					<li><a href="#">Beverages <span class="mark light-gray">54</span></a></li>
-					<li><a href="#">Appetizers <span class="mark light-gray">359</span></a></li>
-					<li><a href="#">Soups <span class="mark light-gray">98</span></a></li>
-					<li><a href="#">Salads <span class="mark light-gray">195</span></a></li>
-					<li><a href="#">Main dishes: Beef <span class="mark light-gray">280</span></a></li>
-					<li><a href="#">Main dishes: Poultry <span class="mark light-gray">450</span></a></li>
-					<li><a href="#">Main dishes: Pork <span class="mark light-gray">84</span></a></li>
-					<li><a href="#">Main dishes: Seafood <span class="mark light-gray">370</span></a></li>
-					<li><a href="#">Main dishes: Vegetarian <span class="mark light-gray">328</span></a></li>
-					<li><a href="#">Side dishes: Vegetables <span class="mark light-gray">352</span></a></li>
-					<li><a href="#">Side dishes: Other <span class="mark light-gray">99</span></a></li>
-					<li><a href="#">Desserts <span class="mark light-gray">348</span></a></li>
-					<li><a href="#">Canning / Freezing <span class="mark light-gray">61</span></a></li>
-					<li><a href="#">Breads <span class="mark light-gray">234</span></a></li>
-					<li><a href="#">Holidays <span class="mark light-gray">374</span></a></li>
-					<li><a href="#">Entertaining <span class="mark light-gray">176</span></a></li>
-				</ul>
 
-			</aside> <!-- .widget -->
-			<!-- / Widget -->
-
-			<!-- Widget -->
+		<!-- Widget -->
 			<aside class="widget widget-authors">
 
 				<div class="widget-title"><h3>Top authors</h3></div>

@@ -17,6 +17,7 @@ use App\Http\Controllers\EduController;
 */
 
 Route::get('/', [PostController::class, 'index']);
+Route::get('/test2/', [PostController::class, 'test']);
 Route::get('/post/', [PostController::class, 'list']);
 Route::get('/post/{id}', [PostController::class, 'single']);
 
