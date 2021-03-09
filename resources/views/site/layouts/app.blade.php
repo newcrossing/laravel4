@@ -25,9 +25,8 @@
 
 				<div class="grid desk-8 mob-6 alpha clearfix">
 					<div class="logo-holder">
-						<img src="{{ asset('/assets/placeholder/logo.png') }}"
-
-							 class="logo" alt=""/>
+						<img src="{{ asset('/assets/placeholder/logo.png') }}" style="   width: 120px;" class="logo"
+							 alt=""/>
 					</div>
 					<nav id="the-main-menu" class="main-menu-nav menu-inline" data-breakpoint="1160">
 						<ul class="menu horizontal">
