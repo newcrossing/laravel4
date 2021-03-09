@@ -25,7 +25,7 @@
 
 				<div class="grid desk-8 mob-6 alpha clearfix">
 					<div class="logo-holder">
-						<img src="assets/placeholder/logo.png"
+						<img src="{{ asset('/assets/placeholder/logo.png') }}"
 
 							 class="logo" alt=""/>
 					</div>
@@ -33,107 +33,6 @@
 						<ul class="menu horizontal">
 							<li><a href="/">Главная</a></li>
 							<li><a href="/post">Статьи</a></li>
-
-							<li>
-								<a href="blog.php.htm">Блог</a>
-								<ul class="sub-menu">
-									<li><a href="single-blog.php.htm"
-										>Blog
-											single</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="recipe-tag-index.php.htm"
-								>Index</a>
-								<ul class="sub-menu">
-									<li><a href="recipe-tag-index.php.htm"
-										>Tags</a>
-									</li>
-									<li><a href="recipe-ingredients.php.htm"
-										>Ingredients</a>
-									</li>
-								</ul>
-							</li>
-							<li><a href="forums.php.htm"
-								>Forums</a></li>
-							<li><a href="requests.php.htm"
-								>Requests</a>
-							</li>
-							<li>
-								<a href="#">Pages</a>
-								<ul class="sub-menu">
-									<li><a href="members.php.htm"
-										>Members</a>
-									</li>
-									<li><a href="public-collections.php.htm"
-										>Public
-											collections</a></li>
-									<li><a href="help-faq.php.htm"
-										>Help:
-											FAQ</a></li>
-									<li><a href="help-ask-question.php.htm"
-										>Help:
-											Ask question</a></li>
-									<li><a href="help-all-questions.php.htm"
-										>Help:
-											All questions</a></li>
-									<li><a href="404.php.htm"
-										>404 page</a>
-									</li>
-									<li>
-										<a href="#">Next sub menu</a>
-										<ul class="sub-menu">
-											<li><a href="#">Test this</a></li>
-											<li><a href="#">Test this</a></li>
-											<li><a href="#">Test this</a></li>
-											<li>
-												<a href="#">Menu2</a>
-												<ul class="sub-menu">
-													<li><a href="#">Test this</a></li>
-													<li><a href="#">Test this</a></li>
-													<li><a href="#">Test this</a></li>
-													<li>
-														<a href="#">Next sub menu3</a>
-														<ul class="sub-menu">
-															<li><a href="#">Test this</a></li>
-															<li><a href="#">Test this</a></li>
-															<li><a href="#">Test this</a></li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-										</ul>
-									</li>
-									<li><a href="page-sidebar-right.php.htm"
-										>Page
-											sidebar right</a></li>
-									<li><a href="page-sidebar-left.php.htm"
-										>Page
-											sidebar left</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="elem-colors.php.htm"
-								>More</a>
-								<ul class="sub-menu">
-									<li><a href="elem-colors.php.htm">Colors</a>
-									</li>
-									<li><a href="elem-buttons.php.htm"
-										>Buttons</a>
-									</li>
-									<li><a href="elem-typography.php.htm">Typography</a>
-									</li>
-									<li><a href="elem-form.php.htm"
-										>Form</a>
-									</li>
-									<li><a href="elem-accordion.php.htm"
-										>Accordion</a>
-									</li>
-									<li><a href="elem-grid.php.htm"
-										>Grid
-											system</a></li>
-								</ul>
-							</li>
 						</ul>
 					</nav>
 				</div>
