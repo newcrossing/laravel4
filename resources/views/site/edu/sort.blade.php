@@ -57,6 +57,9 @@
         box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
         cursor: pointer;
         transition: 0.4s;
+
+        font-size: 95px;
+        text-align: center;
     }
 
     .card .card_image {
@@ -160,13 +163,8 @@
 	-->
 	<div class="rw-section rw-container ">
 		<div class="rw-inner clearfix ">
-
-
 			<!-- Main content -->
-
-
 			<div class="cards-list">
-
 				<div class="card null"></div>
 				<div class="card null"></div>
 				<div class="card null"></div>
@@ -254,24 +252,40 @@
 <script language="JavaScript">
     $(document).ready(function () {
         var arrColor = [
-            "blue","red","yellow","green", "blue","red","yellow", "green",
-            "blue","red","yellow","green", "blue","red","yellow", "green",
-			"blue","red","yellow","green", "blue","red","yellow", "green",
-            "blue","red","yellow","green", "blue","red","yellow", "green",
-			"blue","red","yellow","green"
+            "blue", "red", "yellow", "green", "blue", "red", "yellow", "green",
+            "blue", "red", "yellow", "green", "blue", "red", "yellow", "green",
+            "blue", "red", "yellow", "green", "blue", "red", "yellow", "green",
+            "blue", "red", "yellow", "green", "blue", "red", "yellow", "green",
+            "blue", "red", "yellow", "green"
         ];
         var rand;
 
         $('.card').on('click', function () {
-            if ($(this).hasClass('null')){
+            if ($(this).hasClass('null')) {
                 rand = Math.floor(Math.random() * arrColor.length);
                 $(this).addClass(arrColor[rand]);
+
+                switch (arrColor[rand]) {
+                    case "green":
+                        $(this).text('1');
+                        break;
+                    case "yellow":
+                        $(this).text('2');
+                        break;
+                    case "blue":
+                        $(this).text('3');
+                        break;
+                    case "red":
+                        $(this).text('4');
+                        break;
+                }
+
+
                 $(this).removeClass('null');
                 arrColor.splice([rand], 1);
-
             }
 
-                        //alert(rand+'   '+arrColor.length);
+            //alert(rand+'   '+arrColor.length);
         });
     });
 

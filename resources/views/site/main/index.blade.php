@@ -26,7 +26,7 @@
                                 </h2>
                             </div>
                             <div class="entry-content">
-                                {!! Illuminate\Support\Str::words($post->text,100)  !!}
+                                {{ Illuminate\Support\Str::words( strip_tags($post->text),100)  }}
                             </div>
                         </div>
                     </div>
