@@ -36,7 +36,7 @@
 
 
 						<div class="">
-							{{ $post->text }}
+							{!! $post->text !!}
 						</div>
 					</div>
 					<div class="clear"></div>

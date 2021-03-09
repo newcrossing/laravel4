@@ -16,18 +16,23 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->string('name')->comment('Название статьи');
+            $table->bigInteger('lavel_id')->unsigned();
+            $table->text('name')->comment('Название статьи');
             $table->longText('text');
-            $table->string('tags')->nullable();
             $table->integer('active')->default('1')->nullable();
             $table->integer('hits')->default('0')->nullable();
-            $table->enum('notify', ['0', '1', '2']); // уведомление. 0 - не требуется . 1 - требуется . 2 - уведомлено
-            $table->integer('in_main')->default('0')->nullable();; // на главную страницу
+            $table->tinyInteger('notify')->default(0); // уведомление. 0 - не требуется . 1 - требуется . 2 - уведомлено
+            $table->tinyInteger('status')->default(0); // статус редактирования. 0 - черновик . 1 - готово
+
+            $table->string('meta_description',255)->default('');
+            $table->string('meta_title',255)->default('');
+            $table->integer('in_main')->default('0'); // на главную страницу
+            $table->date('date_public')->nullable()->default(NULL);
             $table->timestamps();
 
-            $table->foreign('user_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+           // $table->foreign('user_id')
+            //    ->references('id')->on('users')
+            //    ->onDelete('cascade');
         });
     }
 

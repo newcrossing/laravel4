@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -13,13 +14,13 @@ class PostController extends Controller
         $post = Post::find(1);
         $tag = Tag::find([3, 5]);
         $post->tags()->sync($tag);
-
-
     }
+
     public function index()
     {
+
         $posts = DB::table('posts')
-                ->where('published', 1)
+                ->where('active', 1)
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
 
@@ -33,7 +34,7 @@ class PostController extends Controller
     public function list()
     {
         $posts = DB::table('posts')
-                ->where('published', 1)
+                ->where('active', 1)
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
 
