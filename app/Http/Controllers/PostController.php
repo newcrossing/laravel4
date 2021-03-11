@@ -24,7 +24,7 @@ class PostController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
 
-        return view('site.main.index', ['posts' => $posts]);
+        return view('site.post.list', ['posts' => $posts]);
     }
 
     /**
@@ -33,12 +33,11 @@ class PostController extends Controller
      */
     public function list()
     {
-        $posts = DB::table('posts')
-                ->where('active', 1)
-                ->orderBy('created_at', 'desc')
+        $posts = Post::where('active', 1)
+                ->orderBy('date_public', 'desc')
                 ->paginate(10);
 
-        return view('site.main.index', ['posts' => $posts]);
+        return view('site.post.list', ['posts' => $posts]);
     }
 
     /**
@@ -46,7 +45,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function single($id)
+    public function single( $id)
     {
         $post = Post::findOrFail($id);
 

@@ -4543,7 +4543,8 @@ Entries: Blog
 .blog-list .post .entry-content,
 .blog-single .post .entry-content {
   margin: 10px 0;
-  padding-left: 100px;
+  /*padding-left: 100px;*/
+  text-align: justify;
 }
 .blog-list .post:first-of-type,
 .blog-single .post:first-of-type {
@@ -6621,4 +6622,11 @@ Demos
   padding: 15px 0;
   text-align: center;
   margin: 15px 0;
+}
+
+.right {
+  float: right;
+}
+.left {
+  float: left;
 }

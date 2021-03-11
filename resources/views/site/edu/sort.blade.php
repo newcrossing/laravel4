@@ -14,15 +14,6 @@
 <body>
 
 <style type="text/css">
-    div.square22 {
-        width: 100px;
-        height: 100px;
-
-        border: #c80d15 solid 5px;
-        float: left;
-        margin: 5px;
-        cursor: pointer;
-    }
 
     div.blue {
         background: blue;
@@ -194,12 +185,8 @@
 				<div class="card null"></div>
 				<div class="card null"></div>
 				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
-				<div class="card null"></div>
+
+
 
 			</div>
 
@@ -252,7 +239,6 @@
 <script language="JavaScript">
     $(document).ready(function () {
         var arrColor = [
-            "blue", "red", "yellow", "green", "blue", "red", "yellow", "green",
             "blue", "red", "yellow", "green", "blue", "red", "yellow", "green",
             "blue", "red", "yellow", "green", "blue", "red", "yellow", "green",
             "blue", "red", "yellow", "green", "blue", "red", "yellow", "green",

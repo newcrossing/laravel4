@@ -4,6 +4,7 @@
 	<div class="rw-column rw-content">
 		<div class="rw-row page-breadcrumb">
 			@isset($breadcrumbs)
+
 				@foreach ($breadcrumbs as $breadcrumb)
 					@if(isset($breadcrumb['link']))
 						<a href="{{asset($breadcrumb['link'])}}">{{$breadcrumb['name']}}</a>&raquo;
@@ -20,27 +21,24 @@
 			<div class="blog-single clearfix">
 				<div class="entry post">
 					<div class="entry-details">
-						<i class="the-icon fa fa-user"></i>
-						<span class="">
-							<a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
-						</span>
 
-						<i class="the-icon fa fa-calendar"></i>
-						<span class="date">
-							{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d') }}
-							{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('F ') }}
-							{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('Y') }}
-						</span>
-						<br>
-						<br>
+						<div class="grid-container" style="margin-bottom: 5px">
+							<div class="left">
+								<i class="the-icon fa fa-user"></i>
+								<a href="/user/{{ $post->user->login }}">{{ $post->user->login }}</a>
+							</div>
+							<div class="right">
+								<i class="the-icon fa fa-calendar"></i>
+								{{ $Carbone->createFromFormat('Y-m-d', $post->date_public)->isoFormat('d MMMM YYYY', 'Do MMMM').' г.' }}
+							</div>
+						</div>
 
 
 						<div class="">
-							{!! $post->text !!}
+							{!! str_replace('<hr />','',$post->text)   !!}
 						</div>
 					</div>
 					<div class="clear"></div>
-
 				</div> <!-- .entry -->
 			</div>
 			<div class="clear"></div>
@@ -274,28 +272,28 @@
 							<textarea name="comment"></textarea>
 						</div>
 
-						<p class="form-submit clearfix">
+						<div class="form-submit clearfix">
 							<input name="submit" class="button primary" type="submit" value="Post Comment"/>
 							<span class="comment-form-question"><i class="fa fa-question-circle fa-2x"></i>
 							</span>
-						<div class="form-allowed-tags" style="display: none;">
+							<div class="form-allowed-tags" style="display: none;">
                             <span class="ftg-title" style="display: none">You may use these <abbr
 										title="HyperText Markup Language">HTML</abbr> tags and attributes:</span>
-							<code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt;</code><br/>
-							<code>&lt;abbr title=&quot;&quot;&gt;</code><br/>
-							<code>&lt;acronym title=&quot;&quot;&gt;</code><br/>
-							<code>&lt;b&gt;</code><br/>
-							<code>&lt;blockquote cite=&quot;&quot;&gt;</code><br/>
-							<code>&lt;cite&gt;</code><br/>
-							<code>&lt;code&gt;</code><br/>
-							<code>&lt;del datetime=&quot;&quot;&gt;</code><br/>
-							<code>&lt;em&gt;</code><br/>
-							<code>&lt;i&gt;</code><br/>
-							<code>&lt;q cite=&quot;&quot;&gt;</code><br/>
-							<code>&lt;strike&gt;</code><br/>
-							<code>&lt;strong&gt;</code><br/>
+								<code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt;</code><br/>
+								<code>&lt;abbr title=&quot;&quot;&gt;</code><br/>
+								<code>&lt;acronym title=&quot;&quot;&gt;</code><br/>
+								<code>&lt;b&gt;</code><br/>
+								<code>&lt;blockquote cite=&quot;&quot;&gt;</code><br/>
+								<code>&lt;cite&gt;</code><br/>
+								<code>&lt;code&gt;</code><br/>
+								<code>&lt;del datetime=&quot;&quot;&gt;</code><br/>
+								<code>&lt;em&gt;</code><br/>
+								<code>&lt;i&gt;</code><br/>
+								<code>&lt;q cite=&quot;&quot;&gt;</code><br/>
+								<code>&lt;strike&gt;</code><br/>
+								<code>&lt;strong&gt;</code><br/>
+							</div>
 						</div>
-						</p>
 					</form>
 				</div>
 			</div><!-- #respond -->
@@ -676,5 +674,3 @@
 		</div> <!-- .the-sidebar -->
 	</div> <!-- .rw-sidebar -->
 @endsection
-
-

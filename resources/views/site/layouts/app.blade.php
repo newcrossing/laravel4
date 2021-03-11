@@ -31,7 +31,7 @@
 					<nav id="the-main-menu" class="main-menu-nav menu-inline" data-breakpoint="1160">
 						<ul class="menu horizontal">
 							<li><a href="/">Главная</a></li>
-							<li><a href="/post">Статьи</a></li>
+							<li><a href="{{route('post')}}">Статьи</a></li>
 						</ul>
 					</nav>
 				</div>

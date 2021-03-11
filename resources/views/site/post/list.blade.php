@@ -15,18 +15,25 @@
                 @foreach ($posts as $post)
                     <div class="post clearfix">
                         <div class="entry-details">
-                            <div class="entry-date">
-                                <span class="date"> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d') }}</span>
-                                <span class="month"> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('F ') }}</span>
-                                <span class="year"> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('Y') }}</span>
-                            </div>
-                            <div class="entry-title">
+
+                            <div class="">
                                 <h2>
                                     <a href="/post/{{ $post->id }}"> {{ $post->name }}</a>
                                 </h2>
                             </div>
                             <div class="entry-content">
-                                {{ Illuminate\Support\Str::words( strip_tags($post->text),100)  }}
+                                <div class="grid-container " style="margin-bottom: 5px">
+                                    <div class="left">
+                                        <i class="the-icon fa fa-user"></i>
+                                        <a href="/user/{{ $post->user->id }}">{{ $post->user->login }}</a>
+                                    </div>
+                                    <div class="right">
+                                        <i class="the-icon fa fa-calendar"></i>
+                                        {{ $Carbone->createFromFormat('Y-m-d', $post->date_public)->isoFormat('d MMMM YYYY', 'Do MMMM').' г.' }}
+                                    </div>
+                                </div>
+
+                                {!!   strip_tags(Illuminate\Support\Str::before( $post->text,'<hr />'))   !!}
                             </div>
                         </div>
                     </div>
