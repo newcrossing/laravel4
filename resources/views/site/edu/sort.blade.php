@@ -184,7 +184,7 @@
 				<div class="card null"></div>
 				<div class="card null"></div>
 				<div class="card null"></div>
-				<div class="card null"></div>
+
 
 
 
