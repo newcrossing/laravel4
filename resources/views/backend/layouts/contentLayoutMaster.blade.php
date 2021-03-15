@@ -15,12 +15,12 @@
 	<link rel="shortcut icon" type="image/x-icon" href="{{asset('adm/app-assets/images/ico/favicon.ico')}}">
 
 	{{-- Include core + vendor Styles --}}
-	@include('admin.panels.styles')
+	@include('backend.panels.styles')
 </head>
 <!-- END: Head-->
 
 
-@include((config('admin.mainLayoutType') === 'horizontal-menu') ? 'admin.layouts.horizontalLayoutMaster':'admin.layouts.verticalLayoutMaster')
+@include((config('backend.mainLayoutType') === 'horizontal-menu') ? 'admin.layouts.horizontalLayoutMaster':'admin.layouts.verticalLayoutMaster')
 
 
 </html>

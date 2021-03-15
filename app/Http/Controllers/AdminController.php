@@ -11,11 +11,11 @@ class AdminController extends Controller
 
     public function loginPage()
     {
-        return view('admin.auth.auth-login');
+        return view('backend.auth.auth-login');
     }
 
     public function index()
     {
-        return view('admin.pages.content-typography');
+        return view('backend.pages.content-typography');
     }
 }

@@ -1,4 +1,4 @@
-@extends('admin.layouts.fullLayoutMaster')
+@extends('backend.layouts.fullLayoutMaster')
 {{-- page title --}}
 @section('title','Авторизация')
 {{-- page scripts --}}

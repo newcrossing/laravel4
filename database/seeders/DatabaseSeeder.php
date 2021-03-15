@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Content;
 use App\Models\Lavel;
 use App\Models\Tag;
+use App\Models\Tag2;
 use App\Models\User2;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -29,11 +30,24 @@ class DatabaseSeeder extends Seeder
         //       ->has(Post::factory()->count(20))
         //      ->create();
 
-
         //Post::factory()->count(1)->create();
-        Log::info('начало заполнения');
-        //User::factory()->count(1)->create();
+
+        Log::info('Начало заполнения');
+
         //Tag::factory()->count(1)->create();
+        foreach (Tag2::all() as $tag2) {
+            Tag::create(
+                    [
+                            'id' => $tag2->id,
+                            'name' => $tag2->Name_Tag,
+                            'hits' => $tag2->Hits_Tag,
+                            'active' => 1,
+                    ]
+            );
+        }
+
+        Log::info('Таблица Tags заполнена');
+
         //Lavel::factory()->count(10)->create();
 
 
@@ -65,25 +79,25 @@ class DatabaseSeeder extends Seeder
                     );
                 }
         */
-        foreach (Content::where('ShortName_Content', '')->get() as $content) {
-            Post::create(
-                    [
-                            'id' => $content->id,
-                            'user_id' => $content->IdUser_Content,
-                            'lavel_id' => 2,
-                            'name' => $content->Name_Content,
-                            'text' => $content->Text_Content,
-                            'active' => 1,
-                            'hits' => $content->Hits_Content,
-                            'notify' => 2,
-                            'status' => 1,
-                            'meta_description' => '',
-                            'meta_title' => '',
-                            'in_main' => 1,
-                            'date_public' => $content->DateNPub_Content,
-                            'date_public' => $content->DateNPub_Content,
-                    ]
-            );
-        }
+        /* foreach (Content::where('ShortName_Content', '')->get() as $content) {
+             Post::create(
+                     [
+                             'id' => $content->id,
+                             'user_id' => $content->IdUser_Content,
+                             'lavel_id' => 2,
+                             'name' => $content->Name_Content,
+                             'text' => $content->Text_Content,
+                             'active' => 1,
+                             'hits' => $content->Hits_Content,
+                             'notify' => 2,
+                             'status' => 1,
+                             'meta_description' => '',
+                             'meta_title' => '',
+                             'in_main' => 1,
+                             'date_public' => $content->DateNPub_Content,
+                             'date_public' => $content->DateNPub_Content,
+                     ]
+             );
+         }*/
     }
 }

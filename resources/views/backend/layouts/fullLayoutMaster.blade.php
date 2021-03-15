@@ -26,7 +26,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('adm/app-assets/images/ico/favicon.ico')}}">
 
     {{-- Include core + vendor Styles --}}
-    @include('admin.panels.styles')
+    @include('backend.panels.styles')
   </head>
   <!-- END: Head-->
 
@@ -47,7 +47,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END: Content-->
 
     {{-- scripts --}}
-    @include('admin.panels.scripts')
+    @include('backend.panels.scripts')
 
   </body>
   <!-- END: Body-->

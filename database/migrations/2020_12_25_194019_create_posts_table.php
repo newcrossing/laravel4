@@ -23,11 +23,11 @@ class CreatePostsTable extends Migration
             $table->integer('hits')->default('0')->nullable();
             $table->tinyInteger('notify')->default(0); // уведомление. 0 - не требуется . 1 - требуется . 2 - уведомлено
             $table->tinyInteger('status')->default(0); // статус редактирования. 0 - черновик . 1 - готово
-
             $table->string('meta_description',255)->default('');
             $table->string('meta_title',255)->default('');
             $table->integer('in_main')->default('0'); // на главную страницу
             $table->date('date_public')->nullable()->default(NULL);
+            $table->softDeletes(); // мягкое удаление
             $table->timestamps();
 
            // $table->foreign('user_id')

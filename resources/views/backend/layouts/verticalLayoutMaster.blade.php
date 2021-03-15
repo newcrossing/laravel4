@@ -13,11 +13,11 @@
 	  data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 
 <!-- BEGIN: Header-->
-@include('admin.panels.navbar')
+@include('backend.panels.navbar')
 <!-- END: Header-->
 
 <!-- BEGIN: Main Menu-->
-@include('admin.panels.sidebar')
+@include('backend.panels.sidebar')
 <!-- END: Main Menu-->
 
 <!-- BEGIN: Content-->
@@ -47,7 +47,7 @@
 		<div class="content-wrapper">
 			<div class="content-header row">
 				@if(config('pageHeader')=== true && isset($breadcrumbs))
-					@include('admin.panels.breadcrumbs')
+					@include('backend.panels.breadcrumbs')
 				@endif
 			</div>
 			<div class="content-body">
@@ -62,27 +62,27 @@
 	<div class="customizer d-none d-md-block">
 		<a class="customizer-close" href="#"><i class="bx bx-x"></i></a>
 		<a class="customizer-toggle" href="#"><i class="bx bx-cog bx bx-spin white"></i></a>
-		@include('admin.pages.customizer-content')
+		@include('backend.pages.customizer-content')
 	</div>
 	<!-- End: Customizer-->
 
 	<!-- Buynow Button-->
 	<div class="buy-now">
-		@include('admin.pages.buy-now')
+		@include('backend.pages.buy-now')
 	</div>
 @endif
 <!-- demo chat-->
 <div class="widget-chat-demo">
-	@include('admin.pages.widget-chat')
+	@include('backend.pages.widget-chat')
 </div>
 
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
 
 <!-- BEGIN: Footer-->
-@include('admin.panels.footer')
+@include('backend.panels.footer')
 <!-- END: Footer-->
 
-@include('admin.panels.scripts')
+@include('backend.panels.scripts')
 </body>
 <!-- END: Body-->

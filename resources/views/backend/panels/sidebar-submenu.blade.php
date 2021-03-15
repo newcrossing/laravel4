@@ -9,7 +9,7 @@
             <span class="menu-item">{{ __('locale.'.$submenu->name)}}</span>
             </a>
             @if(isset($submenu->submenu))
-              @include('admin.panels.sidebar-submenu',['menu'=>$submenu->submenu])
+              @include('backend.panels.sidebar-submenu',['menu'=>$submenu->submenu])
             @endif
           </li>
         @endforeach
@@ -26,7 +26,7 @@
               <span>{{ __('locale.'.$submenu->name)}}</span>
           </a>
           @if(isset($submenu->submenu))
-            @include('admin.panels.sidebar-submenu',['menu' => $submenu->submenu])
+            @include('backend.panels.sidebar-submenu',['menu' => $submenu->submenu])
           @endif
           </li>
         @endforeach
@@ -45,7 +45,7 @@
         <span class="menu-item">{{ __('locale.'.$submenu->name)}}</span>
         </a>
         @if(isset($submenu->submenu))
-          @include('admin.panels.sidebar-submenu',['menu'=>$submenu->submenu])
+          @include('backend.panels.sidebar-submenu',['menu'=>$submenu->submenu])
         @endif
       </li>
     @endforeach

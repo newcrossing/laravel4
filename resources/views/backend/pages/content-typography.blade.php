@@ -1,4 +1,4 @@
-@extends('admin.layouts.contentLayoutMaster')
+@extends('backend.layouts.contentLayoutMaster')
 
 {{-- title --}}
 @section('title','Typography')

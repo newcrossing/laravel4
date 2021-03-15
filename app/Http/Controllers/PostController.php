@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
-    public function test(){
+    public function test()
+    {
         $post = Post::find(1);
         $tag = Tag::find([3, 5]);
         $post->tags()->sync($tag);
@@ -18,34 +19,28 @@ class PostController extends Controller
 
     public function index()
     {
-
-        $posts = DB::table('posts')
-                ->where('active', 1)
+        $posts = Post::where('active', 1)
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
+        $tags = Tag::where('active', 1)->orderByDesc('hits')->limit(10)->get();
 
-        return view('site.post.list', ['posts' => $posts]);
+        return view('frontend.post.list', compact('posts', 'tags'));
     }
 
-    /**
-     * Jn
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
+
     public function list()
     {
         $posts = Post::where('active', 1)
                 ->orderBy('date_public', 'desc')
                 ->paginate(10);
 
-        return view('site.post.list', ['posts' => $posts]);
+        $tags = Tag::where('active', 1)->orderByDesc('hits')->limit(10)->get();
+
+        return view('frontend.post.list', compact('posts', 'tags'));
     }
 
-    /**
-     * @param $id
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function single( $id)
+
+    public function single($id)
     {
         $post = Post::findOrFail($id);
 
@@ -54,11 +49,11 @@ class PostController extends Controller
                 ['link' => "/post", 'name' => " Статьи"],
                 ['name' => $post->name],
         ];
-        $tags = Tag::where('active',1)->orderByDesc('hits')->limit(10)->get();
+        $tags = Tag::where('active', 1)->orderByDesc('hits')->limit(10)->get();
 
-        return view('site.post.single', [
+        return view('frontend.post.single', [
                 'post' => $post,
-                'tags' => $tags,
+                'listTags' => $tags,
                 'breadcrumbs' => $breadcrumbs
         ]);
     }

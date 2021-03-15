@@ -283,7 +283,7 @@
 	</div> <!-- .rw-container -->
 
 
-	@include('site.pages.footer')
+	@include('frontend.pages.footer')
 
 
 </section><!-- .rw-layout -->

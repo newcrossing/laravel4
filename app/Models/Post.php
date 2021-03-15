@@ -4,14 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     /**
+     * Атрибуты, которые должны быть преобразованы в дату
      *
-     * Обратная связь  с таблицкй пользователи
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
+    /**
+     * Связь  связь  с таблицей Users
+     * Многое к одному
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
@@ -20,7 +30,7 @@ class Post extends Model
     }
 
     /**
-     * Получить теги для поста
+     * Полиморфная  связь  с таблицей Tags
      */
     public function tags()
     {

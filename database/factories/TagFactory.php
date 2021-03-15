@@ -25,16 +25,7 @@ class TagFactory extends Factory
      */
     public function definition()
     {
-        foreach (Tag2::all() as $tag2) {
-            Tag::create(
-                    [
-                            'id' => $tag2->id,
-                            'name' => $tag2->Name_Tag,
-                            'hits' => $tag2->Hits_Tag,
-                            'active' => 1,
-                    ]
-            );
-        }
+
 
 
         return [
