@@ -18,4 +18,19 @@ class AdminController extends Controller
     {
         return view('backend.pages.content-typography');
     }
+
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin/index');
+        }
+
+        return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+        ]);
+    }
 }

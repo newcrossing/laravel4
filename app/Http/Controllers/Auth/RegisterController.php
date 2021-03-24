@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -44,30 +45,57 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'name' => ['required', 'string', 'max:60', 'min:3'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ], [
+                'name.required' => 'Поле обязательно для заполнения',
+                'name.max' => 'Максимальный размер поля 60 символов',
+                'name.min' => 'Минимальный размер поля 3 символа',
+                'name.string' => 'Допускаются только текстовые симовлы',
+                'email.required' => 'Поле обязательно для заполнения',
+                'email.string' => 'Допускаются только текстовые симовлы',
+                'email.email' => 'Укажите в формате email ',
+                'email.unique' => 'Указанный email уже используется',
+                'password.required' => 'Поле обязательно для заполнения',
+                'password.min' => 'Минимальный размер пароля 8 символа',
+                'password.confirmed' => 'Пароли не совпадают',
         ]);
+    }
+
+
+    /**
+     * Отображение формы регистрации
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    protected function showRegistrationForm()
+    {
+        return view('frontend.auth.register');
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \App\Models\User
      */
     protected function create(array $data)
     {
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
         ]);
+       // return redirect('/');
     }
 }

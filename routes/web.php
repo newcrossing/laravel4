@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EduController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,8 @@ Route::get('/post/{id}', [PostController::class, 'single']);
 Route::get('/edu/sort/', [EduController::class, 'sort']);
 Route::get('/edu/task/{id}', [EduController::class, 'task']);
 
-Route::get('/test',     function () {       })->middleware('auth:admin');
+Route::get('/test', function () {
+})->middleware('auth:admin');
 
 // Authentication  Route
 
@@ -32,10 +34,14 @@ Route::get('/admin', [AdminController::class, 'loginPage']);
 Route::get('/admin/index', [AdminController::class, 'index']);
 
 
+//Auth::routes();
+Auth::routes([
+        'login' => true,
+        'logout' => true,
+        'register' => true,
+        'reset' => true,   // for resetting passwords
+        'confirm' => false,  // for additional password confirmations
+        'verify' => false,  // for email verification
+]);
 
-
-
-
-Auth::routes();
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');

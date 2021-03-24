@@ -24,34 +24,51 @@
 								<div class="card-body">
 
 
-									<form>
+									{{-- form  --}}
+									<form method="POST" action="/admin/">
+										@csrf
 										<div class="form-group mb-50">
-											<label class="text-bold-600" for="exampleInputEmail1">Email </label>
-											<input type="email" class="form-control" id="exampleInputEmail1"
-												   placeholder="Email address">
+											<label class="text-bold-600" for="email">Email address</label>
+											<input id="email" type="email"
+												   class="form-control @error('email') is-invalid @enderror"
+												   name="email" value="{{ old('email') }}" autocomplete="email"
+												   autofocus placeholder="Email">
+											@error('email')
+											<span class="invalid-feedback" role="alert">
+                        					<strong>{{ $message }}</strong>
+                      						</span>
+											@enderror
 										</div>
 										<div class="form-group">
-											<label class="text-bold-600" for="exampleInputPassword1">Пароль</label>
-											<input type="password" class="form-control" id="exampleInputPassword1"
+											<label class="text-bold-600" for="password">Password</label>
+											<input id="password" type="password"
+												   class="form-control @error('password') is-invalid @enderror"
+												   name="password" autocomplete="current-password"
 												   placeholder="Password">
+											@error('password')
+											<span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+											@enderror
 										</div>
 										<div class="form-group d-flex flex-md-row flex-column justify-content-between align-items-center">
 											<div class="text-left">
 												<div class="checkbox checkbox-sm">
-													<input type="checkbox" class="form-check-input" id="exampleCheck1">
-													<label class="checkboxsmall" for="exampleCheck1">
+													<input class="form-check-input" type="checkbox" name="remember"
+														   id="remember" {{ old('remember') ? 'checked' : '' }}>
+													<label class="form-check-label" for="remember">
 														<small>Keep me logged in</small>
 													</label>
 												</div>
 											</div>
 											<div class="text-right">
-												<a href="{{asset('auth-forgot-password')}}" class="card-link"><small>Forgot
+												<a href="{{ route('password.request') }}" class="card-link"><small>Forgot
 														Password?</small></a>
 											</div>
 										</div>
-										<a href="{{asset('/')}}" class="btn btn-primary glow w-100 position-relative">Login
+										<button type="submit" class="btn btn-primary glow w-100 position-relative">Login
 											<i id="icon-arrow" class="bx bx-right-arrow-alt"></i>
-										</a>
+										</button>
 									</form>
 									<hr>
 									<div class="text-center">

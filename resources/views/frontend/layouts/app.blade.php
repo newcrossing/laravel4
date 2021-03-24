@@ -248,7 +248,7 @@
 											>Private
 												Messages</a></li>
 										<li class="separator"><a href="#">Settings</a></li>
-										<li><a href="#">Sign Out</a></li>
+										<li><a href="{{route('logout')}}">Выйти </a></li>
 									</ul>
 								</li>
 
@@ -256,7 +256,20 @@
 						</nav>
 					</div>
 				@endauth
-
+				@guest
+					<div class="grid desk-4 mob-6 omega">
+						<nav id="the-user-menu" class="main-menu-nav">
+							<ul class="menu horizontal align-right">
+								<li class="to-left-more">
+									<a href="{{route('login')}}">Войти</a>
+								</li>
+								<li class="to-left-more">
+									<a href="{{ route('register')}}">Зарегистрироваться</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				@endguest
 
 			</div> <!-- .grid-container -->
 		</div> <!-- .rw-inner -->
