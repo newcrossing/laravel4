@@ -30,8 +30,10 @@ Route::get('/test', function () {
 
 // Authentication  Route
 
-Route::get('/admin', [AdminController::class, 'loginPage']);
-Route::get('/admin/index', [AdminController::class, 'index']);
+Route::middleware(['auth', 'isadmin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'loginPage']);
+    Route::get('/admin/index', [AdminController::class, 'index']);
+});
 
 
 //Auth::routes();
@@ -45,3 +47,5 @@ Auth::routes([
 ]);
 
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
+

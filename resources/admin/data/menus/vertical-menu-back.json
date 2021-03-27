@@ -10,7 +10,7 @@
       "submenu": [
         {
           "url": "/",
-          "name": "eCommerce ",
+          "name": "eCommerce 2",
           "i18n": "eCommerce",
           "icon": "bx bx-right-arrow-alt"
         },
@@ -19,6 +19,7 @@
           "name": "Analytics",
           "i18n": "Analytics",
           "icon": "bx bx-right-arrow-alt"
+        }
       ]
     },
     {

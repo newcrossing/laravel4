@@ -66,15 +66,9 @@
 	</div>
 	<!-- End: Customizer-->
 
-	<!-- Buynow Button-->
-	<div class="buy-now">
-		@include('backend.pages.buy-now')
-	</div>
+
 @endif
-<!-- demo chat-->
-<div class="widget-chat-demo">
-	@include('backend.pages.widget-chat')
-</div>
+
 
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>

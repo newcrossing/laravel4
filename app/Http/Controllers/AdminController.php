@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -11,7 +12,11 @@ class AdminController extends Controller
 
     public function loginPage()
     {
-        return view('backend.auth.auth-login');
+        if (Auth::user()->isAdmin()) {
+            return redirect('/admin/index');
+        } else {
+            return view('backend.auth.auth-login');
+        }
     }
 
     public function index()

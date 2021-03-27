@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('sex')->default('1');
             $table->string('city')->default('');
             $table->string('foto')->default('');
+            $table->boolean('is_admin')->default(0);
             $table->text('about')->nullable();
             $table->ipAddress('ip')->default('');
             $table->tinyInteger('notify_vst')->default(1);

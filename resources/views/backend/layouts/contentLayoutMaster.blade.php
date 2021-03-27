@@ -20,7 +20,7 @@
 <!-- END: Head-->
 
 
-@include((config('backend.mainLayoutType') === 'horizontal-menu') ? 'admin.layouts.horizontalLayoutMaster':'admin.layouts.verticalLayoutMaster')
+@include((config('backend.mainLayoutType') === 'horizontal-menu') ? 'backend.layouts.horizontalLayoutMaster':'backend.layouts.verticalLayoutMaster')
 
 
 </html>

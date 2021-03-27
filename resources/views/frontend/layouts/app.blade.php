@@ -36,6 +36,11 @@
 					</nav>
 				</div>
 				@auth
+
+					@if (Auth::user())
+						я
+					@endif
+						{{Auth::user()->email}}
 					<div class="grid desk-4 mob-6 omega">
 						<nav id="the-user-menu" class="main-menu-nav">
 							<ul class="menu horizontal align-right">

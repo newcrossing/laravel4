@@ -63,11 +63,7 @@
                       </ul>
                       <ul class="nav navbar-nav float-right">
                         <li class="dropdown dropdown-language nav-item">
-                          <a class="dropdown-toggle nav-link" id="dropdown-flag-2" href="#" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="flag-icon flag-icon-us mr-50"></i>
-                            <span class="selected-language">English</span>
-                          </a>
+
                           <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="#">
                               <i class="flag-icon flag-icon-us mr-50"></i>
@@ -664,13 +660,7 @@
                         </li>
                       </ul>
                       <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-language nav-item">
-                          <a class="dropdown-toggle nav-link" id="dropdown-flag-3" href="#" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="flag-icon flag-icon-us mr-50"></i>
-                            <span class="selected-language">English</span>
-                          </a>
-                        </li>
+
                         <li class="nav-item nav-search">
                           <a class="nav-link nav-link-search">
                             <i class="ficon bx bx-search"></i>
