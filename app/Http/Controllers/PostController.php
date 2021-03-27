@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('active', 1)
-                ->orderBy('created_at', 'desc')
+                ->orderBy('date_public', 'desc')
                 ->paginate(10);
         $tags = Tag::where('active', 1)->orderByDesc('hits')->limit(10)->get();
 
