@@ -19,15 +19,17 @@ class DatabaseSeeder extends Seeder
         Log::info('Начало заполнения');
 
         // таблица Tags
-        $this->call(TagSeeder::class);
+       // $this->call(TagSeeder::class);
 
         // таблица Tags
-        $this->call(UserSeeder::class);
+       // $this->call(UserSeeder::class);
 
         // таблица Posts
-        $this->call(PostSeeder::class);
+       // $this->call(PostSeeder::class);
         //Lavel::factory()->count(10)->create();
 
+
+        $this->call(DocSeeder::class);
 
     }
 }

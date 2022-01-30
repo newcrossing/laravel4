@@ -48,7 +48,7 @@ class PostFactory extends Factory
                             'date_public' => $content->DateNPub_Content,
                     ]
             );
-            Log::notice('fghg');
+           // Log::notice('fghg');
         }
         return [
         ];

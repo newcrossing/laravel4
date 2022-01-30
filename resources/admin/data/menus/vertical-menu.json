@@ -19,14 +19,15 @@
           "name": "Analytics",
           "i18n": "Analytics",
           "icon": "bx bx-right-arrow-alt"
+        }
       ]
     },
     {
-      "navheader": "Apps"
+      "navheader": "Разделы"
     },
     {
-      "url": "app-email",
-      "name": "Email",
+      "url": "admin/post",
+      "name": "Посты",
       "i18n": "Email",
       "icon": "envelope-pull"
     },

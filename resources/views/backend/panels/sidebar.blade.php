@@ -1,4 +1,5 @@
 {{-- vertical-menu --}}
+
 @if(config('admin.mainLayoutType') == 'vertical-menu')
 	<div class="main-menu menu-fixed @if(config('admin.theme') === 'light') {{"menu-light"}} @else {{'menu-dark'}} @endif menu-accordion menu-shadow"
 		 data-scroll-to-active="true">
@@ -27,6 +28,7 @@
 		<div class="main-menu-content">
 			<ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation"
 				data-icon-style="lines">
+
 				@if(!empty($menuData[0]) && isset($menuData[0]))
 					@foreach ($menuData[0]->menu as $menu)
 						@if(isset($menu->navheader))
@@ -38,7 +40,7 @@
 										<i class="menu-livicon" data-icon="{{$menu->icon}}"></i>
 									@endif
 									@if(isset($menu->name))
-										<span class="menu-title">{{ __('locale.'.$menu->name)}}</span>
+										<span class="menu-title">{{ $menu->name}}</span>
 									@endif
 									@if(isset($menu->tag))
 										<span class="{{$menu->tagcustom}}">{{$menu->tag}}</span>
@@ -94,7 +96,7 @@
 							   href="{{asset($menu->url)}}"
 							@if(isset($menu->submenu)){{'data-toggle=dropdown'}} @endif @if(isset($menu->newTab)){{"target=_blank"}}@endif>
 								<i class="menu-livicon" data-icon="{{$menu->icon}}"></i>
-								<span>{{ __('locale.'.$menu->name)}}</span>
+								<span>{{ $menu->name}}</span>
 							</a>
 							@if(isset($menu->submenu))
 								@include('backend.panels.sidebar-submenu',['menu'=>$menu->submenu])

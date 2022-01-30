@@ -20,23 +20,34 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('active', 1)
-                ->orderBy('date_public', 'desc')
-                ->paginate(10);
+            ->orderBy('date_public', 'desc')
+            ->paginate(10);
+
         $tags = Tag::where('active', 1)->orderByDesc('hits')->limit(10)->get();
 
-        return view('frontend.post.list', compact('posts', 'tags'));
+        $breadcrumbs = [
+            ['link' => "/", 'name' => "Главная"],
+        ];
+
+        return view('frontend.post.list', compact('posts', 'tags', 'breadcrumbs'));
     }
 
 
     public function list()
     {
         $posts = Post::where('active', 1)
-                ->orderBy('date_public', 'desc')
-                ->paginate(10);
+            ->orderBy('date_public', 'desc')
+            ->paginate(10);
 
         $tags = Tag::where('active', 1)->orderByDesc('hits')->limit(10)->get();
 
-        return view('frontend.post.list', compact('posts', 'tags'));
+        $breadcrumbs = [
+            ['link' => "/", 'name' => "Главная"],
+            ['name' => " Статьи"],
+
+        ];
+
+        return view('frontend.post.list', compact('posts', 'tags', 'breadcrumbs'));
     }
 
 
@@ -45,16 +56,19 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         $breadcrumbs = [
-                ['link' => "/", 'name' => "Главная"],
-                ['link' => "/post", 'name' => " Статьи"],
-                ['name' => $post->name],
+            ['link' => "/", 'name' => "Главная"],
+            ['link' => "/post", 'name' => " Статьи"],
+            ['name' => $post->name],
         ];
         $tags = Tag::where('active', 1)->orderByDesc('hits')->limit(10)->get();
 
-        return view('frontend.post.single', [
+        return view(
+            'frontend.post.single',
+            [
                 'post' => $post,
                 'listTags' => $tags,
                 'breadcrumbs' => $breadcrumbs
-        ]);
+            ]
+        );
     }
 }

@@ -44,6 +44,6 @@ class UserSeeder extends Seeder
                     ]
             );
         }
-        Log::info('Tаблицa Users заполнена ');
+       // Log::info('Tаблицa Users заполнена ');
     }
 }

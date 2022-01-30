@@ -46,7 +46,7 @@
 		<div class="content-overlay"></div>
 		<div class="content-wrapper">
 			<div class="content-header row">
-				@if(config('pageHeader')=== true && isset($breadcrumbs))
+				@if(config('admin.pageHeader')=== true && isset($breadcrumbs))
 					@include('backend.panels.breadcrumbs')
 				@endif
 			</div>

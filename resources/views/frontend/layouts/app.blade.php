@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>titile</title>
+	<title>@yield('title') - Офицеру.ру</title>
 
 	<link rel="stylesheet" href="{{ asset('/assets/css/font-awesome.min.css') }}"/>
 	<link rel="stylesheet" href="{{ asset('/assets/fonts/awards/awards.css') }}"/>
@@ -32,15 +32,14 @@
 						<ul class="menu horizontal">
 							<li><a href="/">Главная</a></li>
 							<li><a href="{{route('post')}}">Статьи</a></li>
+							<li><a href="{{route('doc')}}">Документы</a></li>
 						</ul>
 					</nav>
 				</div>
 				@auth
 
-					@if (Auth::user())
-						я
-					@endif
-						{{Auth::user()->email}}
+
+
 					<div class="grid desk-4 mob-6 omega">
 						<nav id="the-user-menu" class="main-menu-nav">
 							<ul class="menu horizontal align-right">

@@ -31,7 +31,7 @@ class CreateDocsTable extends Migration
             $table->date('date_published')->nullable()->default(null)->comment('Дата начала публикации');
             $table->date('date_end_published')->nullable()->default(null)->comment('Дата окончания публикации');
 
-            $table->boolean('active')->default(1)->comment('');
+            $table->boolean('active')->default(1)->comment('публикация ');
 
             $table->string('meta_description', 255)->default('');
             $table->string('meta_title', 255)->default('');

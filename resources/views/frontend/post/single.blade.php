@@ -1,10 +1,9 @@
 @extends('frontend.layouts.app')
-
+@section('title','Правовая поддержка военнослужащих')
 @section('content')
 	<div class="rw-column rw-content">
 		<div class="rw-row page-breadcrumb">
 			@isset($breadcrumbs)
-
 				@foreach ($breadcrumbs as $breadcrumb)
 					@if(isset($breadcrumb['link']))
 						<a href="{{asset($breadcrumb['link'])}}">{{$breadcrumb['name']}}</a>&raquo;
@@ -29,7 +28,7 @@
 							</div>
 							<div class="right">
 								<i class="the-icon fa fa-calendar"></i>
-								{{ $Carbone->createFromFormat('Y-m-d', $post->date_public)->isoFormat('d MMMM YYYY', 'Do MMMM').' г.' }}
+								{{ $Carbone->createFromFormat('Y-m-d', $post->date_public)->isoFormat('D MMMM YYYY', 'Do MMMM').' г.' }}
 							</div>
 						</div>
 
@@ -245,6 +244,8 @@
 
 			</div> <!-- .rw-row -->
 		@endif
+
+		@auth()
 		<div class="rw-row">
 
 			<!-- <h2>Leave a Reply</h2> -->
@@ -299,7 +300,7 @@
 			</div><!-- #respond -->
 
 		</div> <!-- .rw-row -->
-
+		@endauth
 	</div>
 @endsection
 
@@ -447,9 +448,6 @@
 				</aside> <!-- .widget -->
 				<!-- / Widget -->
 		@endif
-
-
-
 
 
 		</div> <!-- .the-sidebar -->

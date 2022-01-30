@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\EduController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Backend\AdminPostController;
+use App\Http\Controllers\DocController;
+use App\Http\Controllers\EduController;
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +18,10 @@ use App\Http\Controllers\Auth\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [PostController::class, 'index']);
 Route::get('/test2/', [PostController::class, 'test']);
 Route::get('/post/', [PostController::class, 'list'])->name('post');
+Route::get('/doc/', [DocController::class, 'list'])->name('doc');
 Route::get('/post/{id}', [PostController::class, 'single']);
 
 Route::get('/edu/sort/', [EduController::class, 'sort']);
@@ -28,11 +30,12 @@ Route::get('/edu/task/{id}', [EduController::class, 'task']);
 Route::get('/test', function () {
 })->middleware('auth:admin');
 
-// Authentication  Route
 
+// Authentication  Route
+Route::get('/admin', [AdminController::class, 'loginPage']);
 Route::middleware(['auth', 'isadmin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'loginPage']);
     Route::get('/admin/index', [AdminController::class, 'index']);
+    Route::get('/admin/post', [AdminPostController::class, 'index']);
 });
 
 

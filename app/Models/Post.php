@@ -20,7 +20,8 @@ class Post extends Model
 
     /**
      * Связь  связь  с таблицей Users
-     * Многое к одному
+     * Многое к одному.
+     * Получает пользователя статьи
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

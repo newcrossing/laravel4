@@ -5,11 +5,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-
     public function loginPage()
     {
         if (Auth::user()->isAdmin()) {
@@ -17,6 +15,11 @@ class AdminController extends Controller
         } else {
             return view('backend.auth.auth-login');
         }
+    }
+
+    public function showLoginForm()
+    {
+        return view('frontend.auth.login2');
     }
 
     public function index()
@@ -30,7 +33,6 @@ class AdminController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
             return redirect()->intended('/admin/index');
         }
 
