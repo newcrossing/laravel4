@@ -6,6 +6,8 @@ use App\Http\Controllers\Backend\AdminPostController;
 use App\Http\Controllers\DocController;
 use App\Http\Controllers\EduController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Adm\HomeController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,27 +29,50 @@ Route::get('/post/{id}', [PostController::class, 'single']);
 Route::get('/edu/sort/', [EduController::class, 'sort']);
 Route::get('/edu/task/{id}', [EduController::class, 'task']);
 
-Route::get('/test', function () {
-})->middleware('auth:admin');
+Route::get(
+    '/test',
+    function () {
+    }
+)->middleware('auth:admin');
 
 
 // Authentication  Route
-Route::get('/admin', [AdminController::class, 'loginPage']);
-Route::middleware(['auth', 'isadmin'])->group(function () {
-    Route::get('/admin/index', [AdminController::class, 'index']);
-    Route::get('/admin/post', [AdminPostController::class, 'index']);
-});
+//Route::get('/admin', [AdminController::class, 'loginPage']);
+Route::middleware(['auth', 'isadmin'])->group(
+    function () {
+        // Route::get('/admin/index', [AdminController::class, 'index']);
+        //  Route::get('/admin/post', [AdminPostController::class, 'index']);
+    }
+);
+
+
+Route::group(
+    ['middleware' => ['role:admin']],
+    function () {
+        //Route::get('/admin/index', [AdminController::class, 'index']);
+    }
+);
+
+Route::middleware(['role:admin'])->prefix('admin')->group(
+    function () {
+        //Route::get('/adm', [\App\Http\Controllers\Adm\HomeController::class, 'index']);
+        Route::get('/', [HomeController::class, 'index'])->name('homeAdmin');
+        Route::resource('post', App\Http\Controllers\Adm\PostController::class);
+    }
+);
 
 
 //Auth::routes();
-Auth::routes([
+Auth::routes(
+    [
         'login' => true,
         'logout' => true,
         'register' => true,
         'reset' => true,   // for resetting passwords
         'confirm' => false,  // for additional password confirmations
         'verify' => false,  // for email verification
-]);
+    ]
+);
 
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 

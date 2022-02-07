@@ -51,11 +51,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        return Validator::make(
+            $data,
+            [
                 'name' => ['required', 'string', 'max:60', 'min:3'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ], [
+            ],
+            [
                 'name.required' => 'Поле обязательно для заполнения',
                 'name.max' => 'Максимальный размер поля 60 символов',
                 'name.min' => 'Минимальный размер поля 3 символа',
@@ -67,7 +70,8 @@ class RegisterController extends Controller
                 'password.required' => 'Поле обязательно для заполнения',
                 'password.min' => 'Минимальный размер пароля 8 символа',
                 'password.confirmed' => 'Пароли не совпадают',
-        ]);
+            ]
+        );
     }
 
 
@@ -90,12 +94,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-        return User::create([
+        $user = User::create(
+            [
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
-        ]);
-       // return redirect('/');
+            ]
+        );
+        $user->assignRole('user');
+         return $user;
+        // return redirect('/');
     }
 }
