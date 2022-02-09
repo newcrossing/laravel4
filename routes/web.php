@@ -61,7 +61,7 @@ Route::middleware(['role:admin'])->prefix('admin')->group(
     }
 );
 
-
+Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 //Auth::routes();
 Auth::routes(
     [

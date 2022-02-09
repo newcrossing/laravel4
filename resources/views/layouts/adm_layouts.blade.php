@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="/adm2/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="/adm2/plugins/summernote/summernote-bs4.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/CKE/ckeditor/sample.css"/>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -275,28 +277,61 @@
 <!-- Bootstrap 4 -->
 <script src="/adm2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
-<script src="/adm2/plugins/chart.js/Chart.min.js"></script>
+<!--<script src="/adm2/plugins/chart.js/Chart.min.js"></script> -->
 <!-- Sparkline -->
-<script src="/adm2/plugins/sparklines/sparkline.js"></script>
+<!--<script src="/adm2/plugins/sparklines/sparkline.js"></script> -->
 <!-- JQVMap -->
-<script src="/adm2/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="/adm2/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!--<script src="/adm2/plugins/jqvmap/jquery.vmap.min.js"></script> -->
+<!-- <script src="/adm2/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
 <!-- jQuery Knob Chart -->
-<script src="/adm2/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!--<script src="/adm2/plugins/jquery-knob/jquery.knob.min.js"></script> -->
 <!-- daterangepicker -->
-<script src="/adm2/plugins/moment/moment.min.js"></script>
-<script src="/adm2/plugins/daterangepicker/daterangepicker.js"></script>
+<!--<script src="/adm2/plugins/moment/moment.min.js"></script> -->
+<!--<script src="/adm2/plugins/daterangepicker/daterangepicker.js"></script> -->
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="/adm2/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!--<script src="/adm2/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>-->
 <!-- Summernote -->
-<script src="/adm2/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- <script src="/adm2/plugins/summernote/summernote-bs4.min.js"></script>-->
 <!-- overlayScrollbars -->
-<script src="/adm2/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- <script src="/adm2/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>-->
 <!-- AdminLTE App -->
 <script src="/adm2/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adm2/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/adm2/dist/js/pages/dashboard.js"></script>
+<!--<script src="/adm2/dist/js/pages/dashboard.js"></script>-->
+
+<script type="text/javascript" src="/CKE/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/CKE/ckfinder.js"></script>
+
+<script type="text/javascript">
+
+    // This is a check for the CKEditor class. If not defined, the paths must be checked.
+    if (typeof CKEDITOR == 'undefined')
+    {
+        document.write(
+            '<strong><span style="color: #ff0000">Error</span>: CKEditor not found</strong>.' +
+            'This sample assumes that CKEditor (not included with CKFinder) is installed in' +
+            'the "/ckeditor/" path. If you have it installed in a different place, just edit' +
+            'this file, changing the wrong paths in the &lt;head&gt; (line 5) and the "BasePath"' +
+            'value (line 32).');
+    } else
+    {
+
+
+        //CKEDITOR.config.format_h1 = 'вапвап';
+
+        var editor = CKEDITOR.replace( 'editor1' );
+        //editor.setData( '<p>Just click the <b>Image</b> or <b>Link</b> button, and then <b>&quot;Browse Server&quot;</b>.</p>' );
+
+        // Just call CKFinder.SetupCKEditor and pass the CKEditor instance as the first argument.
+        // The second parameter (optional), is the path for the CKFinder installation (default = "/ckfinder/").
+        CKFinder.setupCKEditor(editor, '/CKE/');
+
+        // It is also possible to pass an object with selected CKFinder properties as a second argument.
+        // CKFinder.SetupCKEditor( editor, { BasePath : '../../', RememberLastFolder : false } ) ;
+    }
+
+</script>
 </body>
 </html>

@@ -52,6 +52,9 @@
                                     <label for="exampleInputPassword1">Текст</label>
                                     <textarea name="text" class="form-control" rows="3"
                                               placeholder="Enter ..."></textarea>
+
+                                    <textarea class="ckeditor" cols="80" style="height: 1000px"  id="editor1" name="Text" ></textarea>
+
                                 </div>
 
 
